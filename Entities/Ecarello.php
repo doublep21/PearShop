@@ -6,10 +6,10 @@ class Carello extends Eprodotti{
 	public function addMerci($idP,$marcaP,$quantitaP,$prezzoP,$immaginiP) {
         array_push(
 			parent::set_id_utente($idP);
-			parent::set_marca($marcaP);
-			parent::set_quantita($quantitaP);
-			parent::set_prezzo($prezzoP);
-			parent::set_immagini($immaginiP);
+		parent::set_marca($marcaP);
+		parent::set_quantita($quantitaP);
+        parent::set_prezzo($prezzoP);
+        parent::set_immagini($immaginiP);
 		);
     }
     
