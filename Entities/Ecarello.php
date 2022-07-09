@@ -35,3 +35,4 @@ class Carello extends Eprodotti{
 	}
 
 }
+?>

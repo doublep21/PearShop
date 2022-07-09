@@ -1,5 +1,5 @@
 <?php
-class Commenti {
+class Commenti{
 	private $rating;
     
 	public function __construct($ratingC,){
@@ -16,3 +16,4 @@ class Commenti {
 	}
 
 }
+?>

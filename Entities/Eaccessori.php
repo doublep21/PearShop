@@ -33,3 +33,4 @@ class Accessori extends Eprodotti{
 		$this->$prodotto_abbinato=$prodotto_abbinatoA;
 	}
 }
+?>
