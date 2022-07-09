@@ -4,15 +4,13 @@ class Utente {
     private $nome;
     private $cognome;
     private $email;
-    private $indirizzo;
     private $password;
 	
-	public function __construct($id_utenteC,$nomeC,$cognomeC,$emailC,$indirizzoC,$passwordC){
+	public function __construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC){
 		$this->$id_utente=$id_utenteC;	
         $this->$nome=$nomeC;
         $this->$cognome=$cognomeC;
         $this->$email=$emailC;
-        $this->$indirizzo=$indirizzoC;
         $this->$password=$passwordC;
 	}
 	
@@ -27,9 +25,6 @@ class Utente {
 	}
     public function get_email(){
 		return $this->$email;
-	}
-    public function get_indirizzo(){
-		return $this->$indirizzo;
 	}
     public function get_password(){
 		return $this->$id_password;
@@ -46,9 +41,6 @@ class Utente {
 	}
     public function set_email($emailC){
 		$this->$email=$emailC;
-	}
-    public function set_indirizzo($indirizzoC){
-		$this->$indirizzo=$indirizzoC;
 	}
     public function set_password($passwordC){
 		$this->$password=hash('sha256', $passwordC);

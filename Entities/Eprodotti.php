@@ -1,18 +1,31 @@
 <?php
-class Prodotti {
+class Prodotti extends ECommenti{
 	private $id;
     private $marca;
     private $descrizione;
     private $quantita;
     private $prezzo;
-    
+	private $immagini = array(
+		"id" => 0,
+		"nome" => "",
+		"dimensione" => "",
+		"tipo" => ""
+	);
+
 	
-	public function __construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP){
+	private $elenco_commenti = array(
+		"id" => 0
+	);
+
+	
+	public function __construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP,$elenco_commentiP){
 		$this->$id=$idP;	
         $this->$marca=$marcaP;
         $this->$descrizione=$descrizioneP;
         $this->$quantita=$quantitaP;
         $this->$prezzo=$prezzoP;
+		$this->$immagini=$immaginiP;
+		$this->$elenco_commenti=$elenco_commentiP;
 	}
 	
     public function get_id(){
@@ -30,6 +43,12 @@ class Prodotti {
     public function get_prezzo(){
 		return $this->$prezzo;
 	}
+	public function get_immagini(){
+		return $this->$immagini;
+	}
+	public function get_elenco_commenti(){
+		return $this->$elenco_commenti;
+	}
     //
     public function set_id_utente($idP){
 		$this->$id=$idP;
@@ -45,5 +64,11 @@ class Prodotti {
 	}
     public function set_prezzo($prezzoP){
 		$this->$prezzo=$prezzoP;
+	}
+	public function set_immagini($immaginiP){
+		$this->$immagini=$immaginiP;
+	}
+	public function set_elenco_commenti($elenco_commentiP){
+		$this->$elenco_commenti=$elenco_commentiP;
 	}
 }
