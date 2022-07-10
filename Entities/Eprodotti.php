@@ -1,5 +1,5 @@
 <?php
-class Prodotti extends ECommenti{
+class Prodotti extends ECommenti implements JsonSerializable{
 	private $id;
     private $marca;
     private $descrizione;
@@ -12,19 +12,16 @@ class Prodotti extends ECommenti{
 		"tipo" => ""
 	);
 
-
 	private $elenco_commenti = array(
-		"id" => 0
+		"id" => 0,
+		"nome" => "",
+		"cognome" => "",
+		"descrizione" => ""
 	);
 
 	
 	public function __construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP,$elenco_commentiP){
-		$this->$id=$idP;	
-        $this->$marca=$marcaP;
-        $this->$descrizione=$descrizioneP;
-        $this->$quantita=$quantitaP;
-        $this->$prezzo=$prezzoP;
-		$this->$immagini=$immaginiP;
+		parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP);
 		$this->$elenco_commenti=$elenco_commentiP;
 	}
 	
@@ -71,5 +68,19 @@ class Prodotti extends ECommenti{
 	public function set_elenco_commenti($elenco_commentiP){
 		$this->$elenco_commenti=$elenco_commentiP;
 	}
+	
+	//
+	
+	public function jsonSerialize() : array
+    {
+        $result = array(
+            "id" => $this->id,
+            "marca" => $this->marca,
+            "descrizione" => $this->descrizione,
+            "quantita" => $this->quantita,
+            "prezzo" => $this->prezzo,
+        );
+        return $result;
+    }
 }
 ?>

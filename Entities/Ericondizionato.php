@@ -10,14 +10,7 @@ class Ricondizionato extends Etelusato{
         $this->$condizioni_ri=$condizioni_riR;
 		$this->$prezzo_ri=$prezzo_riR;
 
-		parent::set_condizioni($condizioniT);
-		parent::set_data_aquisto($data_aquistoT);	
-        parent::set_prezzo_us($prezzo_usT);	
-        parent::set_imei($imeiT);	
-        parent::set_cond_schermo($cond_schermoT);
-		parent::set_cond_batteria($cond_batteriaT);
-        parent::set_cond_usura($cond_usuraT);
-		parent::set_prezzo_aq($prezzo_aqT);
+		parent::__construct($condizioni_riR,$prezzo_riR,$condizioniT,$data_aquistoT,$prezzo_usT,$imeiT,$cond_schermoT,$cond_batteriaT,$cond_usuraT,$prezzo_aqT);
         
 	}
 	
