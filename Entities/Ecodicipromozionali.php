@@ -6,8 +6,6 @@ class Codicipromozionali {
 	private $toggle;
 	private $utilizzi;
 	
-   
-    
 	public function __construct($idcodC,$codiceC,$data_scadenzaC,$toggleC,$utilizziC){
 		$this->$idcod=$idcodC;	
         $this->$codice=$codiceC;

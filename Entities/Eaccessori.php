@@ -1,12 +1,20 @@
 <?php
-class Accessori {
+class Accessori extends Eprodotti{
 	private $id_accessorio;
     private $prodotto_abbinato;
    
     
-	public function __construct($id_accessorioA,$prodotto_abbinatoA){
+	public function __construct($id_accessorioA,$prodotto_abbinatoA,$idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP){
+
 		$this->$id_accessorio=$id_accessorioA;	
         $this->$prodotto_abbinato=$prodotto_abbinatoA;
+
+		parent::set_id($idP);
+		parent::set_marca($marcaP);
+		parent::set_descrizione($descrizioneP);
+		parent::set_quantita($quantitaP);
+        parent::set_prezzo($prezzoP);
+        parent::set_immagini($immaginiP);
         
 	}
 	

@@ -4,16 +4,24 @@ class Utente {
     private $nome;
     private $cognome;
     private $email;
-    private $indirizzo;
     private $password;
+	private $ordini = array(
+		"id" => 0,
+		"data" => ""
+	);
+	private $carello = array(
+		"id" => 0,
+		"data" => ""
+	);
 	
-	public function __construct($id_utenteC,$nomeC,$cognomeC,$emailC,$indirizzoC,$passwordC){
+	public function __construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$ordiniC,$carelloC){
 		$this->$id_utente=$id_utenteC;	
         $this->$nome=$nomeC;
         $this->$cognome=$cognomeC;
         $this->$email=$emailC;
-        $this->$indirizzo=$indirizzoC;
         $this->$password=$passwordC;
+		$this->$ordini=$ordiniC;
+		$this->$carello=$carello;
 	}
 	
     public function get_id_utente(){
@@ -28,11 +36,14 @@ class Utente {
     public function get_email(){
 		return $this->$email;
 	}
-    public function get_indirizzo(){
-		return $this->$indirizzo;
-	}
     public function get_password(){
 		return $this->$id_password;
+	}
+	public function get_ordini(){
+		return $this->$ordini;
+	}
+	public function get_carello(){
+		return $this->$carello;
 	}
     //
     public function set_id_utente($id_utenteC){
@@ -47,11 +58,14 @@ class Utente {
     public function set_email($emailC){
 		$this->$email=$emailC;
 	}
-    public function set_indirizzo($indirizzoC){
-		$this->$indirizzo=$indirizzoC;
-	}
     public function set_password($passwordC){
 		$this->$password=hash('sha256', $passwordC);
+	}
+	public function set_ordini($ordiniC){
+		$this->$ordini=$ordiniC;
+	}
+	public function set_carello($carelloC){
+		$this->$carello=$carelloC;
 	}
 
 }
