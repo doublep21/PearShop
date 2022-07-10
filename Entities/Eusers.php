@@ -67,6 +67,17 @@ class Utente {
 	public function set_carello($carelloC){
 		$this->$carello=$carelloC;
 	}
-
+	
+	public function jsonSerialize(): array
+    {
+        $result = array(
+            "id" => $this->id_utente,
+            "nome" => $this->nome,
+            "cognome" => $this->cognome,
+            "email" => $this->email,
+            "password" => $this->corsoStudio,
+        );
+        return $result;
+    }
 }
 ?>
