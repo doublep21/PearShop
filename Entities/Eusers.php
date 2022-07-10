@@ -1,5 +1,5 @@
 <?php
-class Utente {
+class Utente implements jsonSerialize{
 	private $id_utente;
     private $nome;
     private $cognome;
@@ -68,7 +68,7 @@ class Utente {
 		$this->$carello=$carelloC;
 	}
 	
-	public function jsonSerialize(): array
+	/*public function jsonSerialize(): array
     {
         $result = array(
             "id" => $this->id_utente,
@@ -78,6 +78,6 @@ class Utente {
             "password" => $this->corsoStudio,
         );
         return $result;
-    }
+    }*/
 }
 ?>
