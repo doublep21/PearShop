@@ -12,7 +12,7 @@ class Prodotti extends ECommenti{
 		"tipo" => ""
 	);
 
-	
+
 	private $elenco_commenti = array(
 		"id" => 0
 	);
@@ -72,3 +72,4 @@ class Prodotti extends ECommenti{
 		$this->$elenco_commenti=$elenco_commentiP;
 	}
 }
+?>

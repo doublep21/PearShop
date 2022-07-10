@@ -48,3 +48,4 @@ class Codicipromozionali {
 		$this->$utilizzi=$utilizziC;
 	}
 }
+?>

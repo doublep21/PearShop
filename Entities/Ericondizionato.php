@@ -42,3 +42,4 @@ class Ricondizionato extends Etelusato{
 		$this->$prezzo_ri=$prezzo_riR;
 	}
 }
+?>
