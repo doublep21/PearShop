@@ -6,11 +6,11 @@ class Utente {
     private $email;
     private $password;
 	private $ordini = array(
-		"id" => 0,
+		"id" => "",
 		"data" => ""
 	);
 	private $carello = array(
-		"id" => 0,
+		"id" => "",
 		"data" => ""
 	);
 	

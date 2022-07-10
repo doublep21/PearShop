@@ -9,12 +9,7 @@ class Accessori extends Eprodotti{
 		$this->$id_accessorio=$id_accessorioA;	
         $this->$prodotto_abbinato=$prodotto_abbinatoA;
 
-		parent::set_id($idP);
-		parent::set_marca($marcaP);
-		parent::set_descrizione($descrizioneP);
-		parent::set_quantita($quantitaP);
-        parent::set_prezzo($prezzoP);
-        parent::set_immagini($immaginiP);
+		parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP);
         
 	}
 	

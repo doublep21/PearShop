@@ -6,14 +6,14 @@ class Prodotti extends ECommenti implements JsonSerializable{
     private $quantita;
     private $prezzo;
 	private $immagini = array(
-		"id" => 0,
+		"id" => "",
 		"nome" => "",
 		"dimensione" => "",
 		"tipo" => ""
 	);
 
 	private $elenco_commenti = array(
-		"id" => 0,
+		"id" => "",
 		"nome" => "",
 		"cognome" => "",
 		"descrizione" => ""
@@ -71,7 +71,7 @@ class Prodotti extends ECommenti implements JsonSerializable{
 	
 	//
 	
-	public function jsonSerialize() : array
+	/*public function jsonSerialize() : array
     {
         $result = array(
             "id" => $this->id,
@@ -81,6 +81,6 @@ class Prodotti extends ECommenti implements JsonSerializable{
             "prezzo" => $this->prezzo,
         );
         return $result;
-    }
+    }*/
 }
 ?>

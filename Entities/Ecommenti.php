@@ -3,13 +3,13 @@ class Commenti extends Eusers implements JsonSerializable{
 	private $rating;
 	private $commento
     private $img = array(
-		"id" => 0,
+		"id" => "",
 		"nome" => "",
 		"dimensione" => "",
 		"tipo" => ""
 	);
 	private $user = array(
-		"id" => 0,
+		"id" => "",
 		"nome" => "",
 		"cognome" => "",
 	);
@@ -38,7 +38,7 @@ class Commenti extends Eusers implements JsonSerializable{
 		$this->$rating=$ratingC;
 	}
 	
-	public function jsonSerialize() : array
+	/*public function jsonSerialize() : array
     {
         $result = array(
             "rating" => $this->rating,
@@ -47,6 +47,6 @@ class Commenti extends Eusers implements JsonSerializable{
 			"user" => $this->user,			
         );
         return $result;
-    }
+    }*/
 }
 ?>
