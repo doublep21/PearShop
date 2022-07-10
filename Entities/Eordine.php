@@ -9,12 +9,14 @@ class Ordine {
 		"prezzo" => "",
 		"quantita" => "",
 	);
+	private $codice_promozionale;
 
-	public function __construct($prezzo_totO,$ind_spedizioneO,$data_oraO,$prodottoO){
+	public function __construct($prezzo_totO,$ind_spedizioneO,$data_oraO,$prodottoO,$codice_promozionaleO){
 		$this->$prezzo_tot=$prezzo_totO;	
         $this->$ind_spedizione=$ind_spedizioneO;	
         $this->$data_ora=$data_oraO;
-		$this->$prodotto=$prodottoO;		
+		$this->$prodotto=$prodottoO;
+		$this->$codice_promozionale=$codice_promozionaleO;		
 	}
 	
     public function get_prezzo_tot(){
@@ -29,6 +31,9 @@ class Ordine {
     public function get_prodotto(){
 		return $this->$prodotto;
 	}
+	public function get_codice_promozionale(){
+		return $this->$codice_promozionale;
+	}
     //
     public function set_prezzo_tot($prezzo_totO){
 		$this->$prezzo_tot=$prezzo_totO;
@@ -41,6 +46,9 @@ class Ordine {
 	}
 	public function set_prodotto($prodottoO){
 		$this->$prodotto=$prodottoO;
+	}
+	public function set_codice_promozionale($codice_promozionaleO){
+		$this->$codice_promozionale=$codice_promozionaleO;
 	}
 
 }
