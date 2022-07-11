@@ -1,5 +1,5 @@
 <?php
-class Prodotti extends ECommenti implements JsonSerializable{
+class Prodotti extends ECommenti {
 	private $id;
     private $marca;
     private $descrizione;
@@ -69,18 +69,5 @@ class Prodotti extends ECommenti implements JsonSerializable{
 		$this->$elenco_commenti=$elenco_commentiP;
 	}
 	
-	//
-	
-	/*public function jsonSerialize() : array
-    {
-        $result = array(
-            "id" => $this->id,
-            "marca" => $this->marca,
-            "descrizione" => $this->descrizione,
-            "quantita" => $this->quantita,
-            "prezzo" => $this->prezzo,
-        );
-        return $result;
-    }*/
 }
 ?>

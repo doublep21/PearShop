@@ -5,7 +5,7 @@ class Amministratore extends Eusers {
 	public function __construct($adminA,$id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC){
 
 		$this->$admin=$adminA;	
-    parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC);
+    	parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC);
     
 	}
 

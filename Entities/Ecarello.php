@@ -11,7 +11,7 @@ class Carello extends Eprodotti{
 	public function __construct($quantitaC,$idP,$marcaP,$quantitaP,$prezzoP,$immaginiP){
 
 		$this->$quantita=$quantitaC;
-		parent::--__construct($idP,$marcaP,$quantitaP,$prezzoP,$immaginiP);
+		parent::__construct($idP,$marcaP,$quantitaP,$prezzoP,$immaginiP);
 
 	}
 	

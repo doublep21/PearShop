@@ -1,5 +1,5 @@
 <?php
-class Utente implements jsonSerialize{
+class Utente {
 	private $id_utente;
     private $nome;
     private $cognome;
@@ -67,17 +67,5 @@ class Utente implements jsonSerialize{
 	public function set_carello($carelloC){
 		$this->$carello=$carelloC;
 	}
-	
-	/*public function jsonSerialize(): array
-    {
-        $result = array(
-            "id" => $this->id_utente,
-            "nome" => $this->nome,
-            "cognome" => $this->cognome,
-            "email" => $this->email,
-            "password" => $this->corsoStudio,
-        );
-        return $result;
-    }*/
 }
 ?>
