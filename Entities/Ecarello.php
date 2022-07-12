@@ -17,9 +17,14 @@ class Carello extends Eusers {
     public function set_quantitaCarello($quantitaCarelloC){
 		$this->$quantitaCarello=$quantitaCarelloC;
 	}
-
-	public function addMerci(Eprodotti $agg) {
+	
+	//----da verificare ----//
+	public function addProdotto(Eprodotti $agg) {
 		array_push($this->merci, $agg);
+    }
+	public function removeProdotto($pos) {
+        unset($this->merci[$pos]);
+        $this->merci=array_values($this->merci);
     }
 
 }
