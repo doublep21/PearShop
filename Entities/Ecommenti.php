@@ -14,8 +14,7 @@ class Commenti extends Eusers {
 		$this->$rating=$ratingC;	
 		$this->$commento=$commentoC;	
 		$this->$img=$imgC;	
-		$this->$user=$userC;
-		$this->
+		
 	}
 	
     public function get_rating(){
