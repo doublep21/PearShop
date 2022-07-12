@@ -5,8 +5,8 @@ class Ordine extends Ecarello{
     private $data_ora;
 	private $codice_promozionale;
 
-	public function __construct($prezzo_totO,$ind_spedizioneO,$data_oraO,$codice_promozionaleO,$quantitaCarelloC){
-		parent::__construct($quantitaCarelloC); 
+	public function __construct($prezzo_totO,$ind_spedizioneO,$data_oraO,$codice_promozionaleO,$quantitaCarelloC,$merciC){
+		parent::__construct($quantitaCarelloC,$merci); 
 		$this->$prezzo_tot=$prezzo_totO;	
         $this->$ind_spedizione=$ind_spedizioneO;	
         $this->$data_ora=$data_oraO;
