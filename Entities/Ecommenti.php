@@ -8,12 +8,6 @@ class Commenti extends Eusers implements JsonSerializable{
 		"dimensione" => "",
 		"tipo" => ""
 	);
-	private $user = array(
-		"id" => "",
-		"nome" => "",
-		"cognome" => "",
-	);
-
 
 	public function __construct($ratingC,$commentoC,$imgC,$userC,$id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$ordiniC,$carelloC){
 		parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$ordiniC,$carelloC); 

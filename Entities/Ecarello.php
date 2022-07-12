@@ -1,13 +1,12 @@
 <?php
-class Carello {
+class Carello extends Eusers {
 	private $quantitaCarello;
 	private $_merci;
     
-	public function __construct($quantitaCarelloC,$idP,Eprodotti $p ){
+	public function __construct($quantitaCarelloC,$idP){
 
 		$this->$quantitaCarello=$quantitaCarelloC;
-		$this->_merci = new Eprodotti ($p->get_id(), $p->get_marca(), $p->get_quantita(), $p->get_prezzo());
-
+		
 	}
 	
     public function get_quantitaCarello(){

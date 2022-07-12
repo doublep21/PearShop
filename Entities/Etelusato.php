@@ -1,5 +1,5 @@
 <?php
-class Telefonous {
+class Telefonous extends Eprodotti{
 	private $condizioni;
     private $data_aquisto;
     private $prezzo_us;
@@ -9,7 +9,8 @@ class Telefonous {
     private $cond_usura;
     private $prezzo_aq;
 
-	public function __construct($condizioniT,$data_aquistoT,$prezzo_usT,$imeiT,$cond_schermoT,$cond_batteriaT,$cond_usuraT,$prezzo_aqT){
+	public function __construct($condizioniT,$data_aquistoT,$prezzo_usT,$imeiT,$cond_schermoT,$cond_batteriaT,$cond_usuraT,$prezzo_aqT,
+								$idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP){
 		$this->$condizioni=$condizioniT;	
         $this->$data_aquisto=$data_aquistoT;	
         $this->$prezzo_us=$prezzo_usT;
@@ -18,6 +19,8 @@ class Telefonous {
         $this->$cond_batteria=$cond_batteriaT;	
         $this->$cond_usura=$cond_usuraT;
         $this->$prezzo_aq=$prezzo_aqT;
+		parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP);
+        
 	}
 	
     public function get_condizioni(){
