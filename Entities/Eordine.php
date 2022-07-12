@@ -3,12 +3,7 @@ class Ordine {
 	private $prezzo_tot;
     private $ind_spedizione;
     private $data_ora;
-	private $prodotto = array(
-		"id" => "",
-		"marca" => "",
-		"prezzo" => "",
-		"quantita" => "",
-	);
+	private $prodotto = array();
 	private $codice_promozionale;
 
 	public function __construct($prezzo_totO,$ind_spedizioneO,$data_oraO,$prodottoO,$codice_promozionaleO){
