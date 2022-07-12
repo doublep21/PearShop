@@ -23,7 +23,7 @@ class Prodotti extends Ecommenti {
 		$this->$quantita=$quantitaP;
 		$this->$prezzo=$prezzoP;
 		$this->$immagini=$immaginiP;
-		$this->$elenco_commenti=$elenco_commentiP;
+		$this->$elenco_commenti = array();
 	}
 	
     public function get_id(){
@@ -70,5 +70,7 @@ class Prodotti extends Ecommenti {
 		$this->$elenco_commenti=$elenco_commentiP;
 	}
 	
+	
+
 }
 ?>
