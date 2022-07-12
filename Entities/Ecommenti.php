@@ -1,5 +1,5 @@
 <?php
-class Commenti extends Eusers implements JsonSerializable{
+class Commenti extends Eusers {
 	private $rating;
 	private $commento
     private $img = array(
@@ -9,12 +9,13 @@ class Commenti extends Eusers implements JsonSerializable{
 		"tipo" => ""
 	);
 
-	public function __construct($ratingC,$commentoC,$imgC,$userC,$id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$ordiniC,$carelloC){
-		parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$ordiniC,$carelloC); 
+	public function __construct($ratingC,$commentoC,$imgC,$id_utenteC,$nomeC,$cognomeC,$emailC){
+		parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC); 
 		$this->$rating=$ratingC;	
-		$this->$$commento=$$commentoC;	
-		$this->$$img=$$imgC;	
-		$this->$$user=$$userC;
+		$this->$commento=$commentoC;	
+		$this->$img=$imgC;	
+		$this->$user=$userC;
+		$this->
 	}
 	
     public function get_rating(){
@@ -32,15 +33,5 @@ class Commenti extends Eusers implements JsonSerializable{
 		$this->$rating=$ratingC;
 	}
 	
-	/*public function jsonSerialize() : array
-    {
-        $result = array(
-            "rating" => $this->rating,
-            "commento" => $this->commento,
-			"img" => $this->img,
-			"user" => $this->user,			
-        );
-        return $result;
-    }*/
 }
 ?>

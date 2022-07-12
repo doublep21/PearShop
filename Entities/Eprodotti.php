@@ -1,5 +1,5 @@
 <?php
-class Prodotti extends ECommenti {
+class Prodotti extends Ecommenti {
 	private $id;
     private $marca;
     private $descrizione;
@@ -12,16 +12,17 @@ class Prodotti extends ECommenti {
 		"tipo" => ""
 	);
 
-	private $elenco_commenti = array(
-		"id" => "",
-		"nome" => "",
-		"cognome" => "",
-		"descrizione" => ""
-	);
+	private $elenco_commenti = array();
 
 	
 	public function __construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP,$elenco_commentiP){
-		parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP);
+		parent::__construct($ratingC,$commentoC,$imgC);
+		$this->$id=$idP;
+		$this->$marca=$marcaP;
+		$this->$descrizione=$descrizioneP;
+		$this->$quantita=$quantitaP;
+		$this->$prezzo=$prezzoP;
+		$this->$immagini=$immaginiP;
 		$this->$elenco_commenti=$elenco_commentiP;
 	}
 	

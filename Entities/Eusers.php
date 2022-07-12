@@ -1,27 +1,20 @@
 <?php
-class Utente {
+class Utente  extends Ecommenti{
 	private $id_utente;
     private $nome;
     private $cognome;
     private $email;
     private $password;
-	private $ordini = array(
-		"id" => "",
-		"data" => ""
-	);
-	private $carello = array(
-		"id" => "",
-		"data" => ""
-	);
 	
-	public function __construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$ordiniC,$carelloC){
+	
+	public function __construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$ratingC,$commentoC,$imgC){
+		parent::__construct($ratingC,$commentoC,$imgC); 
 		$this->$id_utente=$id_utenteC;	
         $this->$nome=$nomeC;
         $this->$cognome=$cognomeC;
         $this->$email=$emailC;
         $this->$password=$passwordC;
-		$this->$ordini=$ordiniC;
-		$this->$carello=$carello;
+		
 	}
 	
     public function get_id_utente(){
@@ -39,12 +32,7 @@ class Utente {
     public function get_password(){
 		return $this->$id_password;
 	}
-	public function get_ordini(){
-		return $this->$ordini;
-	}
-	public function get_carello(){
-		return $this->$carello;
-	}
+	
     //
     public function set_id_utente($id_utenteC){
 		$this->$id_utente=$id_utenteC;
@@ -61,11 +49,6 @@ class Utente {
     public function set_password($passwordC){
 		$this->$password=hash('sha256', $passwordC);
 	}
-	public function set_ordini($ordiniC){
-		$this->$ordini=$ordiniC;
-	}
-	public function set_carello($carelloC){
-		$this->$carello=$carelloC;
-	}
+	
 }
 ?>
