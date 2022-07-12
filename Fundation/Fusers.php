@@ -44,25 +44,22 @@ class Fusers {
         return self::$values;
     }
 
-    public static function loadByField($field, $id_utente){
-        $utente = null;
-        $db=dbf::getInstance(); // getInstance implementar nel dbms  <-- funzione richiamata,presente in FDatabase
-        if(($result!=null) && ($rows_number == 1)) {
-        $result=$db->loadDB(static::getClass(), $field, $id_utente);    // loadDB implementar nel dbms  <-- funzione richiamata,presente in FDatabase
-        if(($result!=null) && ($rows_number == 1)) {
-        $rows_number = $db->interestedRows(static::getClass(), $field, $id_utente);    // interestedRows implementar nel dbms  <-- funzione richiamata,presente in FDatabase
-        if(($result!=null) && ($rows_number == 1)) {
-            $utente=new Eusers($result['name'],$result['cogname'], $result['email'], $result['password']);
-        }
-        else {
-            if(($result!=null) && ($rows_number > 1)){
-                $utente = array();
-        	    for($i=0; $i<count($result); $i++){
-                    $utente[]=new Eusers($result[$i]['name'],$result[$i]['cognome'], $result[$i]['email'], $result[$i]['password']);
-                }
-            }
-        }
-        return $utente;
+    //funzione login
+    public static function loadLogin ($user, $pass) {
+		$utente = null;
+		$db=dbf::getInstance();
+		$result=$db->loadVerificaAccesso($user, $pass);
+		return $utente;
+	}
+
+    //funzione per vedere se esiste un utente
+    public static function exist($field, $id){
+        $db=FDatabase::getInstance();
+        $result=$db->existDB(static::getClass(), $field, $id);    //funzione richiamata,presente in FDatabase
+        if($result!=null)
+            return true;
+        else
+            return false;
     }
     
 }
