@@ -69,7 +69,10 @@ class Prodotti extends Ecommenti {
 	public function set_elenco_commenti($elenco_commentiP){
 		$this->$elenco_commenti=$elenco_commentiP;
 	}
-	
+	public function addCommento(Ecommento $aggcomm) {
+		array_push($this->elenco_commenti, $aggcomm);
+    }
+
 	
 
 }
