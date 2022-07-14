@@ -24,6 +24,14 @@ class dbf{
         }   
         return $this->db;
     }
+
+    public static function getInstance ()
+	{ //restituisce l'unica istanza (creandola se non esiste gia')
+		if (self::$instance == null) {
+			self::$instance = new dbf();
+		}
+		return self::$instance;
+	}
 }
 
 // $object = new dbf();
