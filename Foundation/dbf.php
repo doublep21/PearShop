@@ -1,12 +1,14 @@
 <?php
 
 class dbf{
+
     private $db;
     private $qury_result;
-    // protected $tabella;
-    // protected $chiave;
-    // protected $classe;
-    // protected $autoincremento=false;
+    protected $tabella;
+    protected $chiave;
+    protected $classe;
+    protected $autoincremento=false;
+
     public function __construct() {
 
     }
@@ -24,14 +26,6 @@ class dbf{
         }   
         return $this->db;
     }
-
-    public static function getInstance ()
-	{ //restituisce l'unica istanza (creandola se non esiste gia')
-		if (self::$instance == null) {
-			self::$instance = new dbf();
-		}
-		return self::$instance;
-	}
 }
 
 // $object = new dbf();
