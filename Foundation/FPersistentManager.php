@@ -40,7 +40,10 @@ class FPersistentManager{
 				$Ftelusato = new FTelUsato();
 				$id = $Ftelusato->store($oggetto);
 				break;
-
+			case "Ericondizionato":
+				$Fricondizionato = new FRicondizionato();
+				$id = $Fricondizionato->store($oggetto);
+				break;
 		}
 
 	}
