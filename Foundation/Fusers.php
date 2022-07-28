@@ -2,9 +2,9 @@
 
 class Fusers extends dbf{
     public function __construct() {
-        $this->tabella='utente';
-        $this->chiave='username';
-        $this->classe='Eusers';
+        $this->_tabella='Utenti';
+        $this->_chiave='UtenteId';
+        $this->_classe='Eusers';
         USingleton::getInstance('dbf');
     }
 }

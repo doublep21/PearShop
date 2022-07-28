@@ -1,31 +1,33 @@
 <?php
 
 class dbf{
+/**
+ * @var $_connessione gestione della connessione con il database
+ */
+protected $_connessione;
+protected $_tabella;
+protected $_chiave;
+protected $_classe;
+protected $_contenutoquery;
 
-    private $db;
-    private $qury_result;
-    protected $tabella;
-    protected $chiave;
-    protected $classe;
-    protected $autoincremento=false;
 
-    public function __construct() {
+public function __construct(){}
 
+public function connessione(){
+    try{
+        $hostname='localhost';
+        $database='pearshop';          
+        $user='root';
+        $password='';
+        $this->db = new PDO ("mysql:host=$hostname;dbname=$database", $nome.$cognome, $password);
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-    public function connect(){
-        try{
-            $hostname='localhost';
-            $database='pearshop';          
-            $user='root';
-            $password='';
-            $this->db = new PDO ("mysql:host=$hostname;dbname=$database", $user, $password);
-            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-        catch (PDOException $e){
-            echo "Errore: " . $e->getMessage();
-        }   
-        return $this->db;
-    }
+    catch (PDOException $e){
+        echo "Errore: " . $e->getMessage();
+    }   
+    return $this->db;
+}
+
 }
 
 // $object = new dbf();
