@@ -1,6 +1,6 @@
 <?php
 class Carello {
-	private $quantitaCarello;
+	private int $quantitaCarello;
 	private Eprodotti $prodotti;
     
 	public function __construct($quantitaCarelloC,$prodottiC){
@@ -11,12 +11,12 @@ class Carello {
 	
 	//----------------GET----------------//
     public function get_quantitaCarello(){
-		return $this->$quantitaCarello;
+		return $this->quantitaCarello;
 	}
     
     //----------------SET----------------//
     public function set_quantitaCarello($quantitaCarelloC){
-		$this->$quantitaCarello=$quantitaCarelloC;
+		$this->quantitaCarello=$quantitaCarelloC;
 	}
 	
 	//----------------ADD-REMOVE----------------//
