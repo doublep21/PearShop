@@ -1,18 +1,18 @@
 <?php
 class Ordine {
-	private float $prezzo_tot;
-    private String $ind_spedizione;
-    private data $data_ora;
-	private String $codice_promozionale;
-	private Ecarello $carello;
+	private $prezzo_tot;
+    private $ind_spedizione;
+    private $data_ora;
+	private $codice_promozionale;
+	private $carello;
 
-	public function __construct($prezzo_totO,$ind_spedizioneO,$data_oraO,$codice_promozionaleO,$carelloO){
+	public function __construct(float $prezzo_totO,string $ind_spedizioneO,?string $data_oraO,string $codice_promozionaleO,Carello $carelloO){
 		//parent::__construct($quantitaCarelloC,$merci); 
-		$this->$prezzo_tot=$prezzo_totO;	
-        $this->$ind_spedizione=$ind_spedizioneO;	
-        $this->$data_ora=$data_oraO;
-		$this->$codice_promozionale=$codice_promozionaleO;	
-		$this->$carello=$carelloO;		
+		$this->prezzo_tot=$prezzo_totO;	
+        $this->ind_spedizione=$ind_spedizioneO;	
+        $this->data_ora=$data_oraO;
+		$this->codice_promozionale=$codice_promozionaleO;	
+		$this->carello=$carelloO;		
 	}
 	
 	//----------------GET----------------//
