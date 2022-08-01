@@ -1,24 +1,26 @@
 <?php
-class Carello extends Eusers {
+class Carello {
 	private $quantitaCarello;
-	private $merci = array();
+	private Eprodotti $prodotti;
     
-	public function __construct($quantitaCarelloC,$id_utenteC,$nomeC,$cognomeC){
-		parent::__construct($id_utenteC,$nomeC,$cognomeC); 
+	public function __construct($quantitaCarelloC,$prodottiC){
+		//parent::__construct($id_utenteC,$nomeC,$cognomeC); 
 		$this->$quantitaCarello=$quantitaCarelloC;
-		$this->$merci = array();
+		$this->$prodotti = $prodottiC;
 	}
 	
+	//----------------GET----------------//
     public function get_quantitaCarello(){
 		return $this->$quantitaCarello;
 	}
     
-    //
+    //----------------SET----------------//
     public function set_quantitaCarello($quantitaCarelloC){
 		$this->$quantitaCarello=$quantitaCarelloC;
 	}
 	
-	//----da verificare ----//
+	//----------------ADD-REMOVE----------------//
+	/*
 	public function addProdotto(Eprodotti $agg) {
 		array_push($this->merci, $agg);
     }
@@ -26,6 +28,6 @@ class Carello extends Eusers {
         unset($this->merci[$pos]);
         $this->merci=array_values($this->merci);
     }
-
+	*/
 }
 ?>

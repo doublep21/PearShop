@@ -1,11 +1,11 @@
 <?php
 
 class Utente  {
-	private $id_utente;
-    private $nome;
-    private $cognome;
-    private $email;
-    private $password;
+	private String $id_utente;
+    private String $nome;
+    private String $cognome;
+    private String $email;
+    private String $password;
 	
 	public function __construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC){
 		$this->id_utente=$id_utenteC;	
