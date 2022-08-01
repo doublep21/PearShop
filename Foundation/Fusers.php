@@ -1,11 +1,17 @@
 <?php
 
-class Fusers extends dbf{
-    public function __construct() {
-        $this->_tabella='Utenti';
-        $this->_chiave='UtenteId';
-        $this->_classe='Eusers';
-        USingleton::getInstance('dbf');
+class Fusers extends dbf {
+
+    /** costruttore della classe */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->_tabella = 'Utente';
+        $this->_valore ='(:id,:nome,:cognome,:email,:password)';
+        $this->_classe = 'Fuser';
+    }
+    public function store($utente){
+
     }
 }
 

@@ -16,6 +16,7 @@ class FPersistentManager{
 	/** 
 	 * Metodo che permette di inserire un oggetto nel db 
 	 * @param $oggetto oggetto da salvare
+	 * @return boolean, id dell'oggetto che viene prelevato
 	 */
 	public static function store($oggetto){
 		$name_ogg = get_class($oggetto);
@@ -44,7 +45,10 @@ class FPersistentManager{
 				$Fricondizionato = new FRicondizionato();
 				$id = $Fricondizionato->store($oggetto);
 				break;
+			default:
+			     $id = false;
 		}
-
+		return $id;
+       
 	}
 }

@@ -5,13 +5,18 @@ class dbf{
  * @var $_connessione gestione della connessione con il database
  */
 protected $_connessione;
+protected $_valore;
 protected $_tabella;
 protected $_chiave;
 protected $_classe;
-protected $_contenutoquery;
+
 
 
 public function __construct(){}
+
+
+
+
 
 public function connessione(){
     try{
@@ -33,5 +38,4 @@ public function connessione(){
 // $object = new dbf();
 // $object->connect();
 // var_dump($object);
-
 ?>
