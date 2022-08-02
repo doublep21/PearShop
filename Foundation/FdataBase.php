@@ -49,5 +49,34 @@ class FDataBase
     	 	
     	 } 
     }
+
+	/**
+	 * Metodo che aggiorna il valore di un attributo nel database passato come paramentro
+	 * @param $id dell'oggetto
+	 * @param $newValue nuovo valore dell'attributo 
+	 * @param $attributo valore da cambiare
+	 * @return boolean
+	 */
+	public function update($id, $newValue, $attributo)
+	{
+		$query = " UPDATE ". $this->_tabella ." SET ".$attributo." = '".$newValue."' WHERE id = ".$id.";";
+		try {
+			$this->_connessione->beginTransaction();
+			$pdostmt = $this->_connessione->prepare($query); 
+			$pdostmt->execute();
+			$this->_connessione->commit();
+			return true;
+
+		} catch (PDOException $e) {
+			$this->_connessione->rollBack();
+    	 	echo "Attenzione: " . $e->getMessage();
+    	 	return false;
+		}
+	}
+
+	public function exist($id)
+	{
+		$query = " SELECT * FROM ".$this->_tabella.""
+	}
 } 
 ?>
