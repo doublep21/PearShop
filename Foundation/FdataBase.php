@@ -32,8 +32,8 @@ class FDataBase
     public function store($oggetto)
     {
     	$query = "INSERT INTO".$this->_tabella." VALUES ".$this->_valore.";";
-    	try {
-
+    	try 
+		{
     		$this->_connessione->beginTransaction();
     		$pdostmt = $this->_connessione->prepare($query); 
     		$this->_classe::bind($pdostmt, $oggetto);
@@ -42,7 +42,9 @@ class FDataBase
     	 	$this->_connessione->commit();
     	 	return $id;
 
-    	 } catch (PDOException $e) {
+    	 } 
+		 catch (PDOException $e) 
+		 {
     	 	$this->_connessione->rollBack();
     	 	echo "Attenzione: " . $e->getMessage();
     	 	return false;
@@ -60,23 +62,149 @@ class FDataBase
 	public function update($id, $newValue, $attributo)
 	{
 		$query = " UPDATE ". $this->_tabella ." SET ".$attributo." = '".$newValue."' WHERE id = ".$id.";";
-		try {
+		try 
+		{
 			$this->_connessione->beginTransaction();
 			$pdostmt = $this->_connessione->prepare($query); 
 			$pdostmt->execute();
 			$this->_connessione->commit();
 			return true;
 
-		} catch (PDOException $e) {
+		} 
+		catch (PDOException $e) 
+		{
 			$this->_connessione->rollBack();
     	 	echo "Attenzione: " . $e->getMessage();
     	 	return false;
 		}
 	}
 
+    /**
+	 * Metodo che verifica la presenza di una tupla nel database
+	 * @param $id della tupla interessata
+	 * @return boolean
+	 */
 	public function exist($id)
 	{
-		$query = " SELECT * FROM ".$this->_tabella.""
+		$query = " SELECT * FROM ".$this->_tabella." WHERE id =".$id.";";
+		try 
+		{
+			$this->_connessione->beginTransaction();
+			$pdostmt = $this->_connessione->prepare($query);
+			$pdostmt->execute();
+			$risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+			if(count($risultato)>0) return true;
+			else return false;
+			$this->_connessione->commit();
+
+		} 
+		catch (PDOException $e) 
+		{
+			$this->_connessione->rollBack();
+    	 	echo "Attenzione: " . $e->getMessage();
+    	 	return null;
+		}
+	}
+    
+	/**
+	 * Metodo che elimina una npla dal database
+	 * @param $id della tupla
+	 * @return boolean
+	 */
+	public function delete($id)
+	{
+		$query = " DELETE FROM".$this->_tabella." WHERE id =".$id.";";
+		try
+		{
+			$this->_connessione->beginTransaction();
+			$pdostmt = $this->_connessione->prepare($query);
+			$pdostmt->execute();
+			$this->_connessione->commit();
+			return true;
+		}
+		catch(PDOException $e)
+		{
+			$this->_connessione->rollBack();
+    	 	echo "Attenzione: " . $e->getMessage();
+    	 	return false;
+		}
+	}
+    
+	/**
+	 * Metodo che permette il load di un oggetto nel database grazie al suo id
+	 * @param $id dell'oggetto
+	 * @return tupla recuperata
+	 */
+	public function loadById($id)
+	{
+		$query = " SELECT * FROM ".$this->_tabella." WHERE id =".$id.";";
+		try 
+		{
+			$this->_connessione->beginTransaction();
+			$pdostmt = $this->_connessione->prepare($query);
+			$pdostmt->execute();
+			$risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+			$this->_connessione->commit();
+			return $risultato;
+		} 
+		catch (PDOException $e) 
+		{
+			$this->_connessione->rollBack();
+    	 	echo "Attenzione: " . $e->getMessage();
+    	 	return null;
+		}
+	}
+
+	/**
+	 * Metodo per la load di più oggetti nel database utilizzando l'id
+	 * @param $multipleid array di id associati agli oggetti da recuparare
+	 * @return tuple recuparate
+	 */
+	public function loadMultipleById($multipleid)
+	{
+		$i = implode(",", $multipleid);
+		$i = "(".$i.")";
+		$query = " SELECT * FROM ".$this->_tabella." WHERE id =".$i.";";
+		try 
+		{
+			$this->_connessione->beginTransaction();
+			$pdostmt = $this->_connessione->prepare($query);
+			$pdostmt->execute();
+			$risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+			$this->_connessione->commit();
+			return $risultato;
+		} 
+		catch (PDOException $e) 
+		{
+			$this->_connessione->rollBack();
+    	 	echo "Attenzione: " . $e->getMessage();
+    	 	return null;
+		}
+	}
+
+	/**
+	 * Metodo per la ricerca di oggetti nel database
+	 * @param $contenuto da cercare
+	 * @param $attributo su cui ricercare $contenuto
+	 * @return tuple ricercate
+	 */
+	public function search($contenuto, $attributo)
+	{
+		$query = " SELECT * FROM ".$this->_tabella." WHERE ".$attributo." LIKE '%".$contenuto."%';";
+		try {
+			$this->_connessione->beginTransaction();
+			$pdostmt = $this->_connessione->prepare($query);
+			$pdostmt->execute();
+			$risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+			$this->_connessione->commit();
+			return $risultato;
+		} 
+		catch (PDOException $e) 
+		{
+			$this->_connessione->rollBack();
+    	 	echo "Attenzione: " . $e->getMessage();
+    	 	return null;
+		}
 	}
 } 
 ?>

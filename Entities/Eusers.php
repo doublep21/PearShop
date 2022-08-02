@@ -1,18 +1,20 @@
 <?php
 
 class Utente  {
-	private String $id_utente;
-    private String $nome;
-    private String $cognome;
-    private String $email;
-    private String $password;
+	private $id_utente;
+    private $nome;
+    private $cognome;
+    private $email;
+    private $password;
+	private $stato;
 	
-	public function __construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC){
+	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC){
 		$this->id_utente=$id_utenteC;	
         $this->nome=$nomeC;
         $this->cognome=$cognomeC;
         $this->email=$emailC;
         $this->password=$passwordC;
+		$this->stato=$statoC;
 		
 	}
 
@@ -30,8 +32,12 @@ class Utente  {
 		return $this->email;
 	}
     public function get_password(){
-		return $this->id_password;
+		return $this->password;
 	}
+	public function get_stato(){
+		return $this->stato;
+	}
+
 	
     //----------------SET----------------//
     public function set_id_utente($id_utenteC){
