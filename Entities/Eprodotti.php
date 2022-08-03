@@ -1,28 +1,28 @@
 <?php
 class Eprodotti {
-	private String $id;
-    private String $marca;
-    private String $descrizione;
-    private int $quantita;
-    private float $prezzo;
-	private String $immagini = array(
+	private $id;
+    private $marca;
+    private $descrizione;
+    private $quantita;
+    private $prezzo;
+	private $immagini = array(
 		"id" => "",
 		"nome" => "",
 		"dimensione" => "",
 		"tipo" => ""
 	);
-	private Ecommenti $elenco_commenti;
+	private $elenco_commenti;
 
 	
-	public function __construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP,$elenco_commentiP){
+	public function __construct(int $idP,string $marcaP,string $descrizioneP,int $quantitaP,float $prezzoP,string $immaginiP,Ecommenti $elenco_commentiP){
 		//parent::__construct($ratingC,$commentoC,$imgC);
-		$this->$id=$idP;
-		$this->$marca=$marcaP;
-		$this->$descrizione=$descrizioneP;
-		$this->$quantita=$quantitaP;
-		$this->$prezzo=$prezzoP;
-		$this->$immagini=$immaginiP;
-		$this->$elenco_commenti=$elenco_commentiP;
+		$this->id=$idP;
+		$this->marca=$marcaP;
+		$this->descrizione=$descrizioneP;
+		$this->quantita=$quantitaP;
+		$this->prezzo=$prezzoP;
+		$this->immagini=$immaginiP;
+		$this->elenco_commenti=$elenco_commentiP;
 	}
 	
 	//----------------GET----------------//
