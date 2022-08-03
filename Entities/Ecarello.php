@@ -1,22 +1,29 @@
 <?php
 class Ecarello {
-	private int $quantitaCarello;
-	private Eprodotti $prodotti;
+	private $quantitaCarello;
+	private $prodotti = array();
     
-	public function __construct($quantitaCarelloC,$prodottiC){
+	public function __construct(int $quantitaCarelloC,Eprodotti $prodottiC){
 		//parent::__construct($id_utenteC,$nomeC,$cognomeC); 
-		$this->$quantitaCarello=$quantitaCarelloC;
-		$this->$prodotti = $prodottiC;
+		$this->quantitaCarello=$quantitaCarelloC;
+		$this->prodotti = $prodottiC;
 	}
 	
 	//----------------GET----------------//
     public function get_quantitaCarello(){
 		return $this->quantitaCarello;
 	}
+	public function get_prodotti(){
+		return $this->prodotti;
+	}
+	
     
     //----------------SET----------------//
     public function set_quantitaCarello($quantitaCarelloC){
 		$this->quantitaCarello=$quantitaCarelloC;
+	}
+	public function set_prodotti($prodottiC){
+		$this->prodotti=$prodottiC;
 	}
 	
 	//----------------ADD-REMOVE----------------//

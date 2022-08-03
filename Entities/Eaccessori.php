@@ -6,8 +6,8 @@ class Eaccessori extends Eprodotti{
     
 	public function __construct($id_accessorioA,$prodotto_abbinatoA){
 		//parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP);
-		$this->$id_accessorio=$id_accessorioA;	
-        $this->$prodotto_abbinato=$prodotto_abbinatoA;  
+		$this->id_accessorio=$id_accessorioA;	
+        $this->prodotto_abbinato=$prodotto_abbinatoA;  
 	}
 	
 	//----------------GET----------------//

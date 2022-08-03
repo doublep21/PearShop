@@ -1,15 +1,15 @@
 <?php
 class Ericondizionato {
-	private date $data_ricondizionamento;
-    private String $condizioni_ri;
-	private float $prezzo_ri;
+	private $data_ricondizionamento;
+    private $condizioni_ri;
+	private $prezzo_ri;
    
     
-	public function __construct($data_ricondizionamentoR,$condizioni_riR,$prezzo_riR){
+	public function __construct(?string $data_ricondizionamentoR,string $condizioni_riR,float $prezzo_riR){
 		//parent::__construct($condizioni_riR,$prezzo_riR,$condizioniT,$data_aquistoT,$prezzo_usT,$imeiT,$cond_schermoT,$cond_batteriaT,$cond_usuraT,$prezzo_aqT);
-		$this->$data_ricondizionamento=$data_ricondizionamentoR;	
-        $this->$condizioni_ri=$condizioni_riR;
-		$this->$prezzo_ri=$prezzo_riR;
+		$this->data_ricondizionamento=$data_ricondizionamentoR;	
+        $this->condizioni_ri=$condizioni_riR;
+		$this->prezzo_ri=$prezzo_riR;
 	}
 	
 	//----------------GET----------------//

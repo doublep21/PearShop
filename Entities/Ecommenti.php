@@ -1,19 +1,19 @@
 <?php
 class Ecommenti {
-	private int $rating;
-	private String $commento
-    private String $img = array(
+	private $rating;
+	private $testo;
+    private $img = array(
 		"id" => "",
 		"nome" => "",
 		"dimensione" => "",
 		"tipo" => ""
 	);
 
-	public function __construct($ratingC,$commentoC,$imgC){
+	public function __construct(int $ratingC,string $testoC,string $imgC){
 		//parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC); 
-		$this->$rating=$ratingC;	
-		$this->$commento=$commentoC;	
-		$this->$img=$imgC;	
+		$this->rating=$ratingC;	
+		$this->testo=$testoC;	
+		$this->img=$imgC;	
 		
 	}
 	
@@ -21,8 +21,8 @@ class Ecommenti {
     public function get_rating(){
 		return $this->rating;
 	}
-	public function get_commento(){
-		return $this->commento;
+	public function get_testo(){
+		return $this->testo;
 	}
 	public function get_immagini(){
 		return $this->immagini;

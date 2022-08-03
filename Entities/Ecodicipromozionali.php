@@ -1,17 +1,17 @@
 <?php
 class Ecodicipromozionali {
-	private String $idcod;
-    private String $codice;
-	private date $data_scadenza;
-	private boolean $toggle;
-	private boolean $utilizzi;
+	private $idcod;
+    private $codice;
+	private $data_scadenza;
+	private $toggle;
+	private $utilizzi;
 	
-	public function __construct($idcodC,$codiceC,$data_scadenzaC,$toggleC,$utilizziC){
-		$this->$idcod=$idcodC;	
-        $this->$codice=$codiceC;
-		$this->$data_scadenza=$data_scadenzaC;
-		$this->$toggle=$toggleC;
-		$this->$utilizzi=$utilizziC;
+	public function __construct(int $idcodC,string $codiceC,?string $data_scadenzaC,bool $toggleC,bool $utilizziC){
+		$this->idcod=$idcodC;	
+        $this->codice=$codiceC;
+		$this->data_scadenza=$data_scadenzaC;
+		$this->toggle=$toggleC;
+		$this->utilizzi=$utilizziC;
         
 	}
 	

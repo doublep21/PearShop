@@ -1,24 +1,24 @@
 <?php
 class Etelusato {
-	private String $condizioni;
-    private data $data_aquisto;
-    private float $prezzo_us;
-    private int $imei;
-    private String $cond_schermo;
-    private String $cond_batteria;
-    private String $cond_usura;
-    private float $prezzo_aq;
+	private $condizioni;
+    private $data_aquisto;
+    private $prezzo_us;
+    private $imei;
+    private $cond_schermo;
+    private $cond_batteria;
+    private $cond_usura;
+    private $prezzo_aq;
 
-	public function __construct($condizioniT,$data_aquistoT,$prezzo_usT,$imeiT,$cond_schermoT,$cond_batteriaT,$cond_usuraT,$prezzo_aqT,){
+	public function __construct(string $condizioniT,?string $data_aquistoT,float $prezzo_usT,int $imeiT,string $cond_schermoT,string $cond_batteriaT, string $cond_usuraT,float $prezzo_aqT,){
 		//parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP);
-		$this->$condizioni=$condizioniT;	
-        $this->$data_aquisto=$data_aquistoT;	
-        $this->$prezzo_us=$prezzo_usT;
-        $this->$imei=$imeiT;
-        $this->$cond_schermo=$cond_schermoT;
-        $this->$cond_batteria=$cond_batteriaT;	
-        $this->$cond_usura=$cond_usuraT;
-        $this->$prezzo_aq=$prezzo_aqT;
+		$this->condizioni=$condizioniT;	
+        $this->data_aquisto=$data_aquistoT;	
+        $this->prezzo_us=$prezzo_usT;
+        $this->imei=$imeiT;
+        $this->cond_schermo=$cond_schermoT;
+        $this->cond_batteria=$cond_batteriaT;	
+        $this->cond_usura=$cond_usuraT;
+        $this->prezzo_aq=$prezzo_aqT;
         
 	}
 	
@@ -53,7 +53,7 @@ class Etelusato {
 		$this->condizioni=$condizioniT;
 	}
     public function set_data_aquisto($data_aquistoT){
-		$this->ind_spedizione=$ind_spedizioneO;
+		$this->data_aquisto=$data_aquistoT;
 	}
     public function set_prezzo_us($prezzo_usT){
 		$this->prezzo_us=$prezzo_usT;
@@ -68,7 +68,7 @@ class Etelusato {
 		$this->cond_batteria=$cond_batteriaT;
 	}
     public function set_cond_usura($cond_usuraT){
-		$this->cond_batteria=$cond_batteriaT;
+		$this->cond_usura=$cond_usuraT;
 	}
     public function set_prezzo_aq($prezzo_aqT){
 		$this->prezzo_aq=$prezzo_aqT;
