@@ -1,5 +1,5 @@
 <?php
-class Codicipromozionali {
+class Ecodicipromozionali {
 	private String $idcod;
     private String $codice;
 	private date $data_scadenza;

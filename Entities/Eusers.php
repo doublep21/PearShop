@@ -1,6 +1,6 @@
 <?php
 
-class Utente  {
+class Eusers  {
 	private $id_utente;
     private $nome;
     private $cognome;

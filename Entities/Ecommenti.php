@@ -1,5 +1,5 @@
 <?php
-class Commenti {
+class Ecommenti {
 	private int $rating;
 	private String $commento
     private String $img = array(

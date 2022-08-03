@@ -1,5 +1,5 @@
 <?php
-class Telefonous {
+class Etelusato {
 	private String $condizioni;
     private data $data_aquisto;
     private float $prezzo_us;

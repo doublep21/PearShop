@@ -1,5 +1,5 @@
 <?php
-class Carello {
+class Ecarello {
 	private int $quantitaCarello;
 	private Eprodotti $prodotti;
     

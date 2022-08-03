@@ -18,7 +18,9 @@ class FDataBase
     {
     	try{
     		$this->_connessione = new PDO ("mysql:dbname=".$GLOBALS['database'].";host= 127.0.0.1", $GLOBALS['username'], $GLOBALS['password']);
-    	}catch (PDOException $e){
+    	}
+		catch (PDOException $e)
+		{
     		echo "Errore: " . $e->getMessage();
     		die();
     	}

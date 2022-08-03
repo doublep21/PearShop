@@ -1,5 +1,5 @@
 <?php
-class Accessori extends Eprodotti{
+class Eaccessori extends Eprodotti{
 	private String $id_accessorio;
     private String $prodotto_abbinato;
    

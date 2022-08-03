@@ -1,5 +1,5 @@
 <?php
-class Ordine {
+class Eordine {
 	private $prezzo_tot;
     private $ind_spedizione;
     private $data_ora;

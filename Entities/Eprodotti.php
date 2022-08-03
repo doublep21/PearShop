@@ -1,5 +1,5 @@
 <?php
-class Prodotti {
+class Eprodotti {
 	private String $id;
     private String $marca;
     private String $descrizione;

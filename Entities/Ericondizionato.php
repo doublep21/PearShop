@@ -1,5 +1,5 @@
 <?php
-class Ricondizionato {
+class Ericondizionato {
 	private date $data_ricondizionamento;
     private String $condizioni_ri;
 	private float $prezzo_ri;

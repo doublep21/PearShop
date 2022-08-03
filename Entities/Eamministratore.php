@@ -1,6 +1,6 @@
 <?php
 
-class Amministratore extends Eusers{
+class Eamministratore extends Eusers{
 	private boolean $admin;
     
 	public function __construct($adminA,$id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC){	
