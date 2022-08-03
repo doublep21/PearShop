@@ -27,10 +27,10 @@ class FDataBase
     }
 
     /**
-	 * Effettua lo store di un oggetto nel database
-	 * @param $oggetto da inserire nel database
-	 * @return $id dell' oggetto inserito nel database
-	 */
+     * Effettua lo store di un oggetto nel database
+     * @param $oggetto da inserire nel database
+     * @return false|string $id dell' oggetto inserito nel database
+     */
     public function store($oggetto)
     {
     	$query = "INSERT INTO".$this->_tabella." VALUES ".$this->_valore.";";
@@ -57,8 +57,8 @@ class FDataBase
 	/**
 	 * Metodo che aggiorna il valore di un attributo nel database passato come paramentro
 	 * @param $id dell'oggetto
-	 * @param $newValue nuovo valore dell'attributo 
-	 * @param $attributo valore da cambiare
+	 * @param $newValue string nuovo valore dell'attributo
+	 * @param $attributo string valore da cambiare
 	 * @return boolean
 	 */
 	public function update($id, $newValue, $attributo)
@@ -110,7 +110,7 @@ class FDataBase
     
 	/**
 	 * Metodo che elimina una npla dal database
-	 * @param $id della tupla
+	 * @param $id int della tupla
 	 * @return boolean
 	 */
 	public function delete($id)
@@ -134,8 +134,8 @@ class FDataBase
     
 	/**
 	 * Metodo che permette il load di un oggetto nel database grazie al suo id
-	 * @param $id dell'oggetto
-	 * @return tupla recuperata
+	 * @param $id int dell'oggetto
+	 * @return string tupla recuperata
 	 */
 	public function loadById($id)
 	{
