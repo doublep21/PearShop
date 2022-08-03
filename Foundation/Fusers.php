@@ -14,9 +14,9 @@ class Fusers extends FdataBase {
     /**
      * Metodo che lega gli attributi dell'utente da inserire mediante il parametro INSERT
      * @param $pdostatement
-     * @param $utente utente i cui dati devono essere inseriti nel database
+     * @param $utente Eusers utente i cui dati devono essere inseriti nel database
      */
-    public static function bind($pdostatement, Eusers $utente)
+    public static function bind(PDOStatement $pdostatement, Eusers $utente)
     {
         $pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
         $pdostatement->bindValue(':nome',$utente->get_nome(), PDO::PARAM_STR); 
