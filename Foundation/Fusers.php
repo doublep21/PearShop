@@ -26,6 +26,77 @@ class Fusers extends FdataBase {
         $pdostatement->bindValue(':stato',$utente->get_stato(), PDO::PARAM_STR);
     }
 
+    /**
+     * Metodo per verificare la presenza di un utente dato il nome
+     * @param $name string nome dell'utente
+     * @return bool|null
+     */
+    public function existName($name){
+        $query = " SELECT * FROM ".$this->_tabella." WHERE name= '".$name."';";
+        try {
+            $this->_connessione->beginTransaction();
+            $pdostmt = $this->_connessione->prepare($query);
+            $pdostmt->execute();
+            $risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+            $this->_connessione->commit();
+            if(($risultato != null) && (count($risultato)>0)){
+                return true;
+            }
+            else return false;
+
+        }
+        catch (PDOException $e){
+            $this->_connessione->rollBack();
+            echo "Errore: ".$e->getMessage();
+            return null;
+
+        }
+    }
+
+    /**
+     * Metodo per verificare la presenza di un utente
+     * @param $name string nome dell'utente
+     * @param $password string dell'utente
+     * @return false|mixed|null $id dell'utente se presente,altrimenti false
+     */
+    public function existUser($name,$password){
+        $query = " SELECT * FROM ".$this->_tabella." WHERE name= '".$name."';";
+        try {
+            $this->_connessione->beginTransaction();
+            $pdostmt = $this->_connessione->prepare($query);
+            $pdostmt->execute();
+            $risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+            $this->_connessione->commit();
+            if (($risultato != null) && (count($risultato)>0)){
+                $riga = $risultato[0];
+                $id = $riga['id'];
+                return $id;
+            }
+            else return false;
+        }
+        catch (PDOException $e){
+            $this->_connessione->rollBack();
+            echo "Errore: ".$e->getMessage();
+            return null;
+        }
+    }
+
+    /**
+     * Metodo che effettua la load dell'utente utilizzando l'id
+     * @param $id int dell'utente
+     * @return string|null utente
+     */
+    public function loadById($id)
+    {
+        $riferimento = parent::loadById($id);
+        if (($riferimento != null) && (count($riferimento)>0)){
+            $riga = $riferimento[0];
+            $intera = $this->buildRow($riga);
+            $user = $this->getOggetti($intera);
+            return $user;
+        }
+        else return null;
+    }
 }
 
 
