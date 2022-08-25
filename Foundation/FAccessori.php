@@ -6,7 +6,7 @@ class FAccessori extends FProdotto{
         parent::__construct();
         $this->_tabella = 'Prodotto';
         $this->_valore ='(:id_accessorio,:prodotto_abbinato)';
-        $this->_classe = 'FAccessorio';
+        $this->_classe = 'FAccessori';
     }
 
     /** Metodo che lega gli attributi del prodotto da inserire mediante il parametro INSERT
