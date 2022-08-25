@@ -8,8 +8,9 @@ class Eusers  {
     private $password;
 	private $stato;
     private Ecommenti $commenti;
+    private Ecarello $carello;
 	
-	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC){
+	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,$carello, $commenti){
 		$this->id_utente=$id_utenteC;	
         $this->nome=$nomeC;
         $this->cognome=$cognomeC;
@@ -17,6 +18,7 @@ class Eusers  {
         $this->password=$passwordC;
 		$this->stato=$statoC;
         $this->commenti = array();
+        $this->carello = array();
 		
 	}
 

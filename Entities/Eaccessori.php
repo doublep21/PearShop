@@ -2,12 +2,13 @@
 class Eaccessori extends Eprodotti{
 	private String $id_accessorio;
     private String $prodotto_abbinato;
-   
+	private string $immagini;
     
-	public function __construct($id_accessorioA,$prodotto_abbinatoA){
+	public function __construct($id_accessorioA,$prodotto_abbinatoA,$immaginiA){
 		//parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP);
 		$this->id_accessorio=$id_accessorioA;	
         $this->prodotto_abbinato=$prodotto_abbinatoA;  
+		$this->immagini=$immagini;
 	}
 	
 	//----------------GET----------------//
