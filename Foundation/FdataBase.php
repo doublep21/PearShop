@@ -160,7 +160,7 @@ class FDataBase
 	/**
 	 * Metodo per la load di più oggetti nel database utilizzando l'id
 	 * @param $multipleid array di id associati agli oggetti da recuparare
-	 * @return tuple recuparate
+	 * @return array di tuple recuparate
 	 */
 	public function loadMultipleById($multipleid)
 	{
@@ -188,7 +188,7 @@ class FDataBase
 	 * Metodo per la ricerca di oggetti nel database
 	 * @param $contenuto da cercare
 	 * @param $attributo su cui ricercare $contenuto
-	 * @return tuple ricercate
+	 * @return array tuple ricercate
 	 */
 	public function search($contenuto, $attributo)
 	{

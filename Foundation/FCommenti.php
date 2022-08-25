@@ -12,7 +12,7 @@ class FCommenti extends FDataBase{
     /**
      * Metodo che lega gli attributi del commento da inserire mediante il parametro INSERT
      * @param $pdostatement
-     * @param $commento Ecommento che deve essere inserito nel database
+     * @param $commento Ecommenti che deve essere inserito nel database
      */
     public static function bind(PDOStatement $pdostatement, Ecommenti $commento)
     {
@@ -24,17 +24,17 @@ class FCommenti extends FDataBase{
 
     /** Metodo che consente di creare un oggetto da una riga della tabella commento
      * @param $riga lista del valore della tabella commento
-     * @return ECommento $commento
+     * @return ECommenti $commento
      */
     public function getObject($riga){
-        $commento = new ECommento ($riga['testo'], $riga['rating'], $riga['immagine'], $riga['id_utente']);
+        $commento = new Ecommenti ($riga['testo'], $riga['rating'], $riga['immagine'], $riga['id_utente']);
         $commento->setId($riga['id']);
         return $commento;
     }
 
     /** Metodo che carica un commento nel database
      * @param $id del commento
-     * @return ECommento|string|null
+     * @return Ecommenti|string|null
      */
     public function loadById($id)
     {

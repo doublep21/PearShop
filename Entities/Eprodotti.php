@@ -3,26 +3,27 @@ class Eprodotti {
 	private $id;
     private $marca;
     private $descrizione;
-    private $quantita;
+    private $quantità;
     private $prezzo;
-	private $immagini = array(
+	private string $immagini;
+    /**
+        array(
 		"id" => "",
 		"nome" => "",
 		"dimensione" => "",
 		"tipo" => ""
-	);
-	private $elenco_commenti;
+     */
+
+	private Ecommenti $elenco_commenti;
 
 	
-	public function __construct(int $idP,string $marcaP,string $descrizioneP,int $quantitaP,float $prezzoP,string $immaginiP,Ecommenti $elenco_commentiP){
+	public function __construct(string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP){
 		//parent::__construct($ratingC,$commentoC,$imgC);
-		$this->id=$idP;
 		$this->marca=$marcaP;
 		$this->descrizione=$descrizioneP;
-		$this->quantita=$quantitaP;
+		$this->quantità=$quantitàP;
 		$this->prezzo=$prezzoP;
-		$this->immagini=$immaginiP;
-		$this->elenco_commenti=$elenco_commentiP;
+		$this->elenco_commenti;
 	}
 	
 	//----------------GET----------------//
@@ -35,8 +36,8 @@ class Eprodotti {
     public function get_descrizione(){
 		return $this->descrizione;
 	}
-    public function get_quantita(){
-		return $this->quantita;
+    public function get_quantità(){
+		return $this->quantità;
 	}
     public function get_prezzo(){
 		return $this->prezzo;
@@ -49,7 +50,7 @@ class Eprodotti {
 	}
 
     //----------------SET----------------//
-    public function set_id_utente($idP){
+    public function set_id($idP){
 		$this->id=$idP;
 	}
     public function set_marca($marcaP){
@@ -58,8 +59,8 @@ class Eprodotti {
     public function set_descrizione($descrizioneP){
 		$this->descrizione=$descrizioneP;
 	}
-    public function set_quantita($quantitaP){
-		$this->quantita=$quantitaP;
+    public function set_quantita($quantitàP){
+		$this->quantità=$quantitàP;
 	}
     public function set_prezzo($prezzoP){
 		$this->prezzo=$prezzoP;
