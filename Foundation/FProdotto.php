@@ -20,7 +20,7 @@ class FProdotto extends FDataBase{
         $pdostatement->bindValue(':marca',$prodotto->get_marca(), PDO::PARAM_STR);
         $pdostatement->bindValue(':descrizione',$prodotto->get_descrizione(), PDO::PARAM_STR);
         $pdostatement->bindValue('quantità',$prodotto->get_quantità(), PDO::PARAM_INT);
-        $pdostatement->bindValue(':prezzo',$prodotto->get_prezzo());
+        $pdostatement->bindValue(':prezzo',$prodotto->get_prezzo(),PDO::PARAM_STR);
         $pdostatement->bindValue(':immagini',$prodotto->get_immagini(), PDO::PARAM_STR);
 
     }

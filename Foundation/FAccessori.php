@@ -27,7 +27,7 @@ class FAccessori extends FProdotto{
      */
     public static function buildAccessorio(array $riga)
     {
-        $accessori = new Eaccessori($riga['prodotto_abbinato']);
+        $accessori = new Eaccessori($riga['prodotto_abbinatoA']);
         $accessori->set_id($riga['id_accessorio']);
         $accessori->set_immagini($riga['immagini']);
         return $accessori;
