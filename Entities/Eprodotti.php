@@ -5,71 +5,131 @@ class Eprodotti {
     private $descrizione;
     private $quantità;
     private $prezzo;
-	private string $immagini;
+	private $immagini;
+    private $elenco_commenti = array() ;
+
+	
+	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Ecommenti $elenco_commentiP){
+		$this->marca=$marcaP;
+		$this->descrizione=$descrizioneP;
+		$this->quantità=$quantitàP;
+		$this->prezzo=$prezzoP;
+		$this->elenco_commenti = $elenco_commentiP ;
+	}
+
     /**
-        array(
-		"id" => "",
-		"nome" => "",
-		"dimensione" => "",
-		"tipo" => ""
+     * @return mixed
      */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-	private Ecommenti $elenco_commenti;
+    /**
+     * @param mixed $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 
-	
-	public function __construct(string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP){
-		//parent::__construct($ratingC,$commentoC,$imgC);
-		$this->marca=$marcaP;
-		$this->descrizione=$descrizioneP;
-		$this->quantità=$quantitàP;
-		$this->prezzo=$prezzoP;
-		$this->elenco_commenti;
-	}
-	
-	//----------------GET----------------//
-    public function get_id(){
-		return $this->id;
-	}
-    public function get_marca(){
-		return $this->marca;
-	}
-    public function get_descrizione(){
-		return $this->descrizione;
-	}
-    public function get_quantità(){
-		return $this->quantità;
-	}
-    public function get_prezzo(){
-		return $this->prezzo;
-	}
-	public function get_immagini(){
-		return $this->immagini;
-	}
-	public function get_elenco_commenti(){
-		return $this->elenco_commenti;
-	}
+    /**
+     * @return string
+     */
+    public function getMarca(): string
+    {
+        return $this->marca;
+    }
 
-    //----------------SET----------------//
-    public function set_id($idP){
-		$this->id=$idP;
-	}
-    public function set_marca($marcaP){
-		$this->marca=$marcaP;
-	}
-    public function set_descrizione($descrizioneP){
-		$this->descrizione=$descrizioneP;
-	}
-    public function set_quantita($quantitàP){
-		$this->quantità=$quantitàP;
-	}
-    public function set_prezzo($prezzoP){
-		$this->prezzo=$prezzoP;
-	}
-	public function set_immagini($immaginiP){
-		$this->immagini=$immaginiP;
-	}
-	public function set_elenco_commenti($elenco_commentiP){
-		$this->elenco_commenti=$elenco_commentiP;
-	}
+    /**
+     * @param string $marca
+     */
+    public function setMarca(string $marca): void
+    {
+        $this->marca = $marca;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescrizione(): string
+    {
+        return $this->descrizione;
+    }
+
+    /**
+     * @param string $descrizione
+     */
+    public function setDescrizione(string $descrizione): void
+    {
+        $this->descrizione = $descrizione;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantità(): int
+    {
+        return $this->quantità;
+    }
+
+    /**
+     * @param int $quantità
+     */
+    public function setQuantità(int $quantità): void
+    {
+        $this->quantità = $quantità;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrezzo(): float
+    {
+        return $this->prezzo;
+    }
+
+    /**
+     * @param float $prezzo
+     */
+    public function setPrezzo(float $prezzo): void
+    {
+        $this->prezzo = $prezzo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImmagini()
+    {
+        return $this->immagini;
+    }
+
+    /**
+     * @param mixed $immagini
+     */
+    public function setImmagini(string $immagini): void
+    {
+        $this->immagini = $immagini;
+    }
+
+    /**
+     * @return Ecommenti
+     */
+    public function getElencoCommenti(): Ecommenti
+    {
+        return $this->elenco_commenti;
+    }
+
+    /**
+     * @param Ecommenti $elenco_commenti
+     */
+    public function setElencoCommenti(Ecommenti $elenco_commenti): void
+    {
+        $this->elenco_commenti = $elenco_commenti;
+    }
+
+
+
 }
 ?>

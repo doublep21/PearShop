@@ -1,5 +1,5 @@
 <?php
-class Etelusato {
+class Etelusato extends Eprodotti {
 	private $condizioni;
     private $data_aquisto;
     private $prezzo_us;
@@ -10,7 +10,7 @@ class Etelusato {
     private $prezzo_aq;
 
 	public function __construct(string $condizioniT,?string $data_aquistoT,float $prezzo_usT,int $imeiT,string $cond_schermoT,string $cond_batteriaT, string $cond_usuraT,float $prezzo_aqT,){
-		//parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP);
+		parent::__construct();
 		$this->condizioni=$condizioniT;	
         $this->data_aquisto=$data_aquistoT;	
         $this->prezzo_us=$prezzo_usT;
