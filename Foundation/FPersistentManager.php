@@ -15,7 +15,7 @@ class FPersistentManager{
 
 	/** 
 	 * Metodo che permette di inserire un oggetto nel db 
-	 * @param $oggetto oggetto da salvare
+	 * @param $oggetto mixed oggetto da salvare
 	 * @return boolean, id dell'oggetto che viene prelevato
 	 */
 	public static function store($oggetto){
@@ -51,4 +51,81 @@ class FPersistentManager{
 		return $id;
        
 	}
+
+    /** Metodo che effettua la load dato l'id e il nome dell'oggetto da prendere
+     * @param $oggetto mixed nome dell'oggetto
+     * @param $id int dell'oggetto da recuperare
+     * @return Eaccessori|Ecommenti|Eprodotti|Eprodotto|Eusers|string|null
+     */
+    public function loadById ($oggetto,int $id)
+    {
+        switch ($oggetto) {
+            case "utente":
+                $futente = new Fusers();
+                $risultato = $futente->loadById($id);
+                break;
+            case "commento":
+                $fcommento = new FCommenti();
+                $risultato = $fcommento->loadById($id);
+                break;
+            case "prodotto":
+                $fprodotto = new FProdotto();
+                $risultato = $fprodotto->loadById($id);
+                break;
+            case "accessori":
+                $fac = new FAccessori();
+                $risultato = $fac->loadById($id);
+                break;
+            case "ricondizionato":
+                $fr = new FRicondizionato();
+                $risultato = $fr->loadById($id);
+                break;
+            case "telefonousato":
+                $ftelUsato = new FTelUsato();
+                $risultato = $ftelUsato->loadById($id);
+                break;
+            default:
+                $risultato = null;
+        }
+        return $risultato;
+    }
+
+    /** Metodo che effettua una load dato un gruppo di id e gli oggetti da prendere
+     * @param $oggetto mixed oggetto
+     * @param $id array di id
+     * @return array|null di oggetti
+     */
+    public function loadMultipleById($oggetto,int $id){
+        switch ($oggetto){
+            case "commento":
+                $fcom = new FCommenti();
+                $risultato = $fcom->loadMultipleById($id);
+                break;
+            case "prodotto":
+                $fp = new FProdotto();
+                $risultato = $fp->loadMultipleById($id);
+                break;
+            case "accessorio":
+                $fac = new FAccessori();
+                $risultato = $fac->loadMultipleById($id);
+                break;
+            case "utente":
+                $fus = new Fusers();
+                $risultato = $fus->loadMultipleById($id);
+                break;
+            case "telefonousato":
+                $ft = new FTelUsato();
+                $risultato = $ft->loadMultipleById($id);
+                break;
+            case "ricondizionato":
+                $fri = new FRicondizionato();
+                $risultato = $fri->loadMultipleById($id);
+                break;
+            default:
+                $risultato = null;
+        }
+        return $risultato;
+
+    }
+
 }
