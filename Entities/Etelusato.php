@@ -10,7 +10,7 @@ class Etelusato extends Eprodotti {
     private $prezzo_aq;
 
 	public function __construct(string $condizioniT,?string $data_aquistoT,float $prezzo_usT,int $imeiT,string $cond_schermoT,string $cond_batteriaT, string $cond_usuraT,float $prezzo_aqT,){
-		parent::__construct();
+		parent::__construct($id, $marcaP, $descrizioneP, $quantitàP, $prezzoP);
 		$this->condizioni=$condizioniT;	
         $this->data_aquisto=$data_aquistoT;	
         $this->prezzo_us=$prezzo_usT;

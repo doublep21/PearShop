@@ -7,19 +7,18 @@ class Eusers  {
     private $email;
     private $password;
 	private $stato;
-    private Ecommenti $commenti;
-    private Ecarello $carello;
+    private $commenti=array();
+    private $carello=array();
 	
-	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,$carello, $commenti){
+	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,Ecarello $carello, Ecommenti $commenti){
 		$this->id_utente=$id_utenteC;	
         $this->nome=$nomeC;
         $this->cognome=$cognomeC;
         $this->email=$emailC;
         $this->password=$passwordC;
 		$this->stato=$statoC;
-        $this->commenti = array();
-        $this->carello = array();
-		
+        $this->commenti = $commenti;
+        $this->carello = $carello;	
 	}
 
 	//----------------GET----------------//
@@ -64,12 +63,10 @@ class Eusers  {
     public function set_password($passwordC){
 		$this->password=hash('sha256', $passwordC);
 	}
-    public function setStato(string $stato): void
-    {
+    public function setStato(string $stato): void{
         $this->stato = $stato;
     }
-    public function setCommenti(Ecommenti $commenti): void
-    {
+    public function setCommenti(Ecommenti $commenti): void{
         $this->commenti = $commenti;
     }
 	

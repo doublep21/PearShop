@@ -3,14 +3,9 @@ class Ecommenti {
     private $id;
 	private $rating;
 	private $testo;
-    private $img = array(
-		"id" => "",
-		"nome" => "",
-		"dimensione" => "",
-		"tipo" => ""
-	);
+    private $img = array();
 
-	public function __construct(int $idC,int $ratingC,string $testoC,string $imgC){
+	public function __construct(int $idC,int $ratingC,string $testoC,string Eimmagini $imgC){
 		//parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC);
         $this->id = $idC;
 		$this->rating=$ratingC;	
@@ -33,8 +28,7 @@ class Ecommenti {
     /**
      * @return int
      */
-    public function getId(): int
-    {
+    public function getId(): int{
         return $this->id;
     }
 
@@ -48,8 +42,7 @@ class Ecommenti {
      * @param int $id
      * @return Ecommenti
      */
-    public function setId(int $id): Ecommenti
-    {
+    public function setId(int $id): Ecommenti{
         $this->id = $id;
         return $this;
     }
@@ -58,8 +51,7 @@ class Ecommenti {
      * @param string $testo
      * @return Ecommenti
      */
-    public function setTesto(string $testo): Ecommenti
-    {
+    public function setTesto(string $testo): Ecommenti{
         $this->testo = $testo;
         return $this;
     }
