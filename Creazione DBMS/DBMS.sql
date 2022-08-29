@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Ago 29, 2022 alle 21:48
+-- Generation Time: Ago 29, 2022 alle 22:56
 -- Versione del server: 5.6.33-log
 -- PHP Version: 5.6.40
 
@@ -131,10 +131,17 @@ CREATE TABLE IF NOT EXISTS `Prodotto` (
 
 CREATE TABLE IF NOT EXISTS `Ricondizionato` (
   `id_ricondizionato` int(11) NOT NULL AUTO_INCREMENT,
-  `DataR` datetime NOT NULL,
+  `DataR` datetime DEFAULT NULL,
   `Condizioni` varchar(100) NOT NULL,
-  `PrezzoR` float NOT NULL,
+  `PrezzoR` float DEFAULT NULL,
   `id_prodott` int(11) NOT NULL,
+  `DataA` date NOT NULL,
+  `PrezzoUs` float NOT NULL,
+  `Imei` int(11) NOT NULL,
+  `CondizioniS` int(1) NOT NULL,
+  `CondizioniB` int(1) NOT NULL,
+  `CondizioniU` int(1) NOT NULL,
+  `PrezzoA` float NOT NULL,
   PRIMARY KEY (`id_ricondizionato`),
   KEY `id_prodott` (`id_prodott`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
