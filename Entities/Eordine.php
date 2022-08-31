@@ -1,5 +1,5 @@
 <?php
-class Eordine {
+class Eordine extends Ecodicipromozionali{
 	private $prezzo_tot;
     private $ind_spedizione;
     private $data_ora;
@@ -7,7 +7,7 @@ class Eordine {
 	private $carello;
 
 	public function __construct(float $prezzo_totO,string $ind_spedizioneO,?string $data_oraO,string $codice_promozionaleO,Ecarello $carelloO){
-		//parent::__construct($quantitaCarelloC,$merci); 
+		parent::__construct($idcod,$codice,$data_scadenza,$toggle,$utilizzi); 
 		$this->prezzo_tot=$prezzo_totO;	
         $this->ind_spedizione=$ind_spedizioneO;	
         $this->data_ora=$data_oraO;
