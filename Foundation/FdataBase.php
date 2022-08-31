@@ -83,7 +83,7 @@ class FDataBase
 
     /**
 	 * Metodo che verifica la presenza di una tupla nel database
-	 * @param $id della tupla interessata
+	 * @param int $id della tupla interessata
 	 * @return boolean
 	 */
 	public function exist($id)
@@ -186,8 +186,8 @@ class FDataBase
 
 	/**
 	 * Metodo per la ricerca di oggetti nel database
-	 * @param $contenuto da cercare
-	 * @param $attributo su cui ricercare $contenuto
+	 * @param mixed $contenuto da cercare
+	 * @param mixed $attributo su cui ricercare $contenuto
 	 * @return array tuple ricercate
 	 */
 	public function search($contenuto, $attributo)
