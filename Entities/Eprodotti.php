@@ -1,5 +1,5 @@
 <?php
-class Eprodotti {
+abstract class Eprodotti {
 	private $id;
     private $marca;
     private $descrizione;
@@ -9,7 +9,7 @@ class Eprodotti {
     private $elenco_commenti = array() ;
 
 	
-	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
+	public function __construct(?int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
 		$this->marca=$marcaP;
 		$this->descrizione=$descrizioneP;
 		$this->quantità=$quantitàP;

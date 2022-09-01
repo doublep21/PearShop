@@ -14,39 +14,87 @@ class Ecodicipromozionali {
 		$this->utilizzi=$utilizziC;
         
 	}
+
+    /**
+     * @return int
+     */
+    public function getIdcod(): int
+    {
+        return $this->idcod;
+    }
+
+    /**
+     * @param int $idcod
+     */
+    public function setIdcod(int $idcod): void
+    {
+        $this->idcod = $idcod;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCodice(): string
+    {
+        return $this->codice;
+    }
+
+    /**
+     * @param string $codice
+     */
+    public function setCodice(string $codice): void
+    {
+        $this->codice = $codice;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDataScadenza(): ?string
+    {
+        return $this->data_scadenza;
+    }
+
+    /**
+     * @param string|null $data_scadenza
+     */
+    public function setDataScadenza(?string $data_scadenza): void
+    {
+        $this->data_scadenza = $data_scadenza;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isToggle(): bool
+    {
+        return $this->toggle;
+    }
+
+    /**
+     * @param bool $toggle
+     */
+    public function setToggle(bool $toggle): void
+    {
+        $this->toggle = $toggle;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUtilizzi(): bool
+    {
+        return $this->utilizzi;
+    }
+
+    /**
+     * @param bool $utilizzi
+     */
+    public function setUtilizzi(bool $utilizzi): void
+    {
+        $this->utilizzi = $utilizzi;
+    }
 	
-	//----------------GET----------------//
-    public function get_idcod(){
-		return $this->idcod;
-	}
-    public function get_codice(){
-		return $this->codice;
-	}
-	public function get_data_scadenza(){
-		return $this->data_scadenza;
-	}
-	public function get_toggle(){
-		return $this->toggle;
-	}
-	public function get_utilizzi(){
-		return $this->utilizzi;
-	}
-    
-    //----------------SET----------------//
-    public function set_idcod($idcodC){
-		$this->idcod=$idcodC;
-	}
-    public function set_codice($codiceC){
-		$this->codice=$codiceC;
-	}
-	public function set_data_scadenza($data_scadenzaC){
-		$this->data_scadenza=$data_scadenzaC;
-	}
-	public function set_toggle($toggleC){
-		$this->toggle=$toggleC;
-	}
-	public function set_utilizzi($utilizziC){
-		$this->utilizzi=$utilizziC;
-	}
+
 }
 ?>
