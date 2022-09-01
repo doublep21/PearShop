@@ -6,7 +6,7 @@ abstract class Eprodotti {
     private $quantità;
     private $prezzo;
 	private $immagine =array();
-    private $elenco_commenti = array() ;
+    private $elenco_commenti;
 
 	
 	public function __construct(?int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
