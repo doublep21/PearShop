@@ -29,7 +29,7 @@ class FCodicepromozionale extends FDataBase{
      */
     public function getCodprom($riga){
         $codpro = new Ecodicipromozionali ($riga['codice'], $riga['data_scadenza'], $riga['toggle'], $riga['utilizzi']);
-        $codpro->setId($riga['idcod']);
+        $codpro->setIdcod($riga['idcod']);
         return $codpro;
     }
 
