@@ -9,8 +9,8 @@ class Etelusato extends Eprodotti {
     private $cond_usura;
     private $prezzo_aq;
 
-	public function __construct(string $condizioniT,?string $data_aquistoT,float $prezzo_usT,int $imeiT,string $cond_schermoT,string $cond_batteriaT, string $cond_usuraT,float $prezzo_aqT,){
-		parent::__construct($id, $marcaP, $descrizioneP, $quantitàP, $prezzoP);
+	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,Ecommenti $elenco_commentiP,Eimmagine $immagineI,string $condizioniT,?string $data_aquistoT,float $prezzo_usT,int $imeiT,string $cond_schermoT,string $cond_batteriaT, string $cond_usuraT,float $prezzo_aqT,){
+		parent::__construct($id, $marcaP, $descrizioneP, $quantitàP, $prezzoP,  $elenco_commentiP,  $immagineI);
 		$this->condizioni=$condizioniT;	
         $this->data_aquisto=$data_aquistoT;	
         $this->prezzo_us=$prezzo_usT;
@@ -21,58 +21,136 @@ class Etelusato extends Eprodotti {
         $this->prezzo_aq=$prezzo_aqT;
         
 	}
-	
-	//----------------GET----------------//
-    public function get_condizioni(){
-		return $this->condizioni;
-	}
-    public function get_data_aquisto(){
-		return $this->data_aquisto;
-	}
-    public function get_prezzo_us(){
-		return $this->prezzo_us;
-	}
-    public function get_imei(){
-		return $this->imei;
-	}
-    public function get_cond_schermo(){
-		return $this->cond_schermo;
-	}
-    public function get_cond_batteria(){
-		return $this->cond_batteria;
-	}
-    public function get_cond_usura(){
-		return $this->cond_usura;
-	}
-    public function get_prezzo_aq(){
-		return $this->prezzo_aq;
-	}
 
-    //----------------SET----------------//
-    public function set_condizioni($condizioniT){
-		$this->condizioni=$condizioniT;
-	}
-    public function set_data_aquisto($data_aquistoT){
-		$this->data_aquisto=$data_aquistoT;
-	}
-    public function set_prezzo_us($prezzo_usT){
-		$this->prezzo_us=$prezzo_usT;
-	}
-    public function set_imei($imeiT){
-		$this->imei=$imeiT;
-	}
-    public function set_cond_schermo($cond_schermoT){
-		$this->cond_schermo=$cond_schermoT;
-	}
-    public function set_cond_batteria($cond_batteriaT){
-		$this->cond_batteria=$cond_batteriaT;
-	}
-    public function set_cond_usura($cond_usuraT){
-		$this->cond_usura=$cond_usuraT;
-	}
-    public function set_prezzo_aq($prezzo_aqT){
-		$this->prezzo_aq=$prezzo_aqT;
-	}
+    /**
+     * @return string
+     */
+    public function getCondizioni(): string
+    {
+        return $this->condizioni;
+    }
+
+    /**
+     * @param string $condizioni
+     */
+    public function setCondizioni(string $condizioni): void
+    {
+        $this->condizioni = $condizioni;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDataAquisto(): ?string
+    {
+        return $this->data_aquisto;
+    }
+
+    /**
+     * @param string|null $data_aquisto
+     */
+    public function setDataAquisto(?string $data_aquisto): void
+    {
+        $this->data_aquisto = $data_aquisto;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrezzoUs(): float
+    {
+        return $this->prezzo_us;
+    }
+
+    /**
+     * @param float $prezzo_us
+     */
+    public function setPrezzoUs(float $prezzo_us): void
+    {
+        $this->prezzo_us = $prezzo_us;
+    }
+
+    /**
+     * @return int
+     */
+    public function getImei(): int
+    {
+        return $this->imei;
+    }
+
+    /**
+     * @param int $imei
+     */
+    public function setImei(int $imei): void
+    {
+        $this->imei = $imei;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCondSchermo(): string
+    {
+        return $this->cond_schermo;
+    }
+
+    /**
+     * @param string $cond_schermo
+     */
+    public function setCondSchermo(string $cond_schermo): void
+    {
+        $this->cond_schermo = $cond_schermo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCondBatteria(): string
+    {
+        return $this->cond_batteria;
+    }
+
+    /**
+     * @param string $cond_batteria
+     */
+    public function setCondBatteria(string $cond_batteria): void
+    {
+        $this->cond_batteria = $cond_batteria;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCondUsura(): string
+    {
+        return $this->cond_usura;
+    }
+
+    /**
+     * @param string $cond_usura
+     */
+    public function setCondUsura(string $cond_usura): void
+    {
+        $this->cond_usura = $cond_usura;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrezzoAq(): float
+    {
+        return $this->prezzo_aq;
+    }
+
+    /**
+     * @param float $prezzo_aq
+     */
+    public function setPrezzoAq(float $prezzo_aq): void
+    {
+        $this->prezzo_aq = $prezzo_aq;
+    }
+	
+
 
 }
 ?>

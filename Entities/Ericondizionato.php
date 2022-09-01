@@ -1,6 +1,7 @@
 <?php
 class Ericondizionato extends Eprodotti {
 
+    /** @var string|null data di inserimento all'interno dello shop */
 	private $data_ricondizionamento;
 
     /** @var string condizioni generali del prodotto */
@@ -10,8 +11,8 @@ class Ericondizionato extends Eprodotti {
 	private $prezzo_ri;
    
     
-	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,?string $data_ricondizionamentoR,string $condizioni_riR,float $prezzo_riR){
-        parent::__construct( $id, $marcaP, $descrizioneP, $quantitàP, $prezzoP);
+	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,?string $data_ricondizionamentoR,string $condizioni_riR,float $prezzo_riR, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
+        parent::__construct( $id, $marcaP, $descrizioneP, $quantitàP, $prezzoP,$elenco_commentiP,$immagineI);
 		$this->data_ricondizionamento=$data_ricondizionamentoR;	
         $this->condizioni_ri=$condizioni_riR;
 		$this->prezzo_ri=$prezzo_riR;
