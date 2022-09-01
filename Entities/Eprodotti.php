@@ -5,7 +5,7 @@ class Eprodotti {
     private $descrizione;
     private $quantità;
     private $prezzo;
-	private $immagine =array();
+	private $immagine;
     private $elenco_commenti;
 
 	
@@ -14,6 +14,7 @@ class Eprodotti {
 		$this->descrizione=$descrizioneP;
 		$this->quantità=$quantitàP;
 		$this->prezzo=$prezzoP;
+        $this->immagine=$immagineI;
 		$this->elenco_commenti = $elenco_commentiP ;
 	}
 

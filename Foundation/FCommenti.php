@@ -5,7 +5,7 @@ class FCommenti extends FDataBase{
     {
         parent::__construct();
         $this->_tabella = 'Commenti';
-        $this->_valore ='(:id,:testo,:immagine,:rating)';
+        $this->_valore ='(:id,:testo,:img,:rating)';
         $this->_classe = 'FCommenti';
     }
 
@@ -19,7 +19,7 @@ class FCommenti extends FDataBase{
         $pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
         $pdostatement->bindValue(':rating',$commento->get_rating(), PDO::PARAM_INT);
         $pdostatement->bindValue(':testo',$commento->get_testo(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':immagine',$commento->get_immagini(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':img',$commento->get_immagini(), PDO::PARAM_STR);
     }
 
     /** Metodo che consente di creare un oggetto da una riga della tabella commento
@@ -27,8 +27,9 @@ class FCommenti extends FDataBase{
      * @return ECommenti $commento
      */
     public function getObject($riga){
-        $commento = new Ecommenti ($riga['testo'], $riga['rating'], $riga['immagine'], $riga['id_utente']);
+        $commento = new Ecommenti ($riga['testo'], $riga['rating'], $riga['img'], $riga['id_utente']);
         $commento->setId($riga['id']);
+        $commento->setImg($riga['img']);
         return $commento;
     }
 

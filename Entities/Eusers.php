@@ -7,8 +7,8 @@ class Eusers  {
     private $email;
     private $password;
 	private $stato;
-    private $commenti=array();
-    private $carello=array();
+    private $commenti;
+    private $carello;
 	
 	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,Ecarello $carello, Ecommenti $commenti){
 		$this->id_utente=$id_utenteC;	

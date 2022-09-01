@@ -1,7 +1,7 @@
 <?php
 class Ecarello {
 	private $quantitaCarello;
-	private $prodotti = array();
+	private $prodotti;
 
 	public function __construct(int $quantitaCarelloC,Eprodotti $prodottiC){
 		//parent::__construct($id_utenteC,$nomeC,$cognomeC); 

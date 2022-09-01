@@ -2,12 +2,13 @@
 class Eaccessori extends Eprodotti{
 	private String $id_accessorio;
     private String $prodotto_abbinato;
-	private string $immagini=array();
+	private string $immagini;
     
 	public function __construct($id_accessorioA,$prodotto_abbinatoA,Eimmagini $immaginiA){
 		parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP);
 		$this->id_accessorio=$id_accessorioA;	
         $this->prodotto_abbinato=$prodotto_abbinatoA;  
+		$this->immagini=$immaginiP;
 
 	}
 	
@@ -26,5 +27,6 @@ class Eaccessori extends Eprodotti{
     public function set_prodotto_abbinato($prodotto_abbinatoA){
 		$this->prodotto_abbinato=$prodotto_abbinatoA;
 	}
+
 }
 ?>

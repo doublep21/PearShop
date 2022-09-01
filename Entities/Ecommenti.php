@@ -3,7 +3,7 @@ class Ecommenti {
     private $id;
 	private $rating;
 	private $testo;
-    private $img = array();
+    private $img;
 
 	public function __construct(int $idC,int $ratingC,string $testoC, Eimmagini $imgC){
         $this->id = $idC;
@@ -52,6 +52,15 @@ class Ecommenti {
      */
     public function setTesto(string $testo): Ecommenti{
         $this->testo = $testo;
+        return $this;
+    }
+
+    /**
+     * @param string $img
+     * @return Ecommenti
+     */
+    public function setImg(string $img): Eimmagine{
+        $this->img = $img;
         return $this;
     }
     
