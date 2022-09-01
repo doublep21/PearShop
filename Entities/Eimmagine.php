@@ -13,12 +13,16 @@ class Eimmagine {
     /**id dell'oggetto al quale l'immagine si riferisce */
     private $size;
 
+    /**contenuto immagine */
+    private $img;
+
     /**costruttore*/
-    public function __construct($id, $nome, $type, $size){
+    public function __construct($id, $nome, $type, $size, $img){
         $this->id_img = $id;
         $this->nome = $nome;
         $this->type = $type;
         $this->size = $size;
+        $this->img= $img;
     }
 
     //----------------GET----------------//
@@ -51,6 +55,13 @@ class Eimmagine {
         return $this->size;
     }
 
+     /**
+    * @return longblob contenuto dell'immagine
+    */
+    public function get_img(){
+        return $this->img;
+    }
+
     //----------------SET----------------//
 
     /**
@@ -79,6 +90,13 @@ class Eimmagine {
     */
     public function set_size($size){
         $this->size = $size;
+    }
+
+    /**
+    * @param longblob $img dell'immagine
+    */
+    public function set_img($img){
+        $this->img = $img;
     }
     
 }
