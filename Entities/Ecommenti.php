@@ -5,12 +5,7 @@ class Ecommenti {
 	private $testo;
     private $img = array();
 
-<<<<<<< HEAD
 	public function __construct(int $idC,int $ratingC,string $testoC, Eimmagini $imgC){
-=======
-	public function __construct(int $idC,int $ratingC,string $testoC,string Eimmagini $imgC)
-    {
->>>>>>> b7a6a1c997d3e2747105e76c67b731716ee3be46
         $this->id = $idC;
 		$this->rating=$ratingC;	
 		$this->testo=$testoC;	
