@@ -1,5 +1,5 @@
 <?php
-abstract class Eprodotti {
+class Eprodotti {
 	private $id;
     private $marca;
     private $descrizione;
