@@ -5,8 +5,7 @@ class Ecommenti {
 	private $testo;
     private $img = array();
 
-	public function __construct(int $idC,int $ratingC,string $testoC,string Eimmagini $imgC){
-		//parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC);
+	public function __construct(int $idC,int $ratingC,string $testoC, Eimmagini $imgC){
         $this->id = $idC;
 		$this->rating=$ratingC;	
 		$this->testo=$testoC;	
@@ -55,6 +54,7 @@ class Ecommenti {
         $this->testo = $testo;
         return $this;
     }
+    
 
 }
 ?>
