@@ -45,8 +45,8 @@ class FtelNuovo extends FDataBase
     }*/
 
     /** Metodo che carica un prodotto nel database
-     * @param $id del prodotto
-     * @return Eprodotto|string|null
+     * @param $id int del prodotto
+     * @return EtelNuovo|string|null
      */
     public function loadById($id)
     {
@@ -80,7 +80,7 @@ class FtelNuovo extends FDataBase
     /**
      * Metodo che permette di effettuare una ricerca di prodotti per marca
      * @param $nome array di id prodotti
-     * @return array di Eprodotto
+     * @return array di EtelNuovo
      */
     public function ricercaPerNome($nome){
         if(count($nome)!=0){

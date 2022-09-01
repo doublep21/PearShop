@@ -7,15 +7,12 @@ class Ericondizionato extends Eprodotti {
     /** @var string condizioni generali del prodotto */
     private $condizioni_ri;
 
-    /** @var float prezzo del prodotto */
-	private $prezzo_ri;
-   
     
-	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,?string $data_ricondizionamentoR,string $condizioni_riR,float $prezzo_riR, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
+	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,?string $data_ricondizionamentoR,string $condizioni_riR, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
         parent::__construct( $id, $marcaP, $descrizioneP, $quantitàP, $prezzoP,$elenco_commentiP,$immagineI);
 		$this->data_ricondizionamento=$data_ricondizionamentoR;	
         $this->condizioni_ri=$condizioni_riR;
-		$this->prezzo_ri=$prezzo_riR;
+
 	}
 
     /**
@@ -50,21 +47,6 @@ class Ericondizionato extends Eprodotti {
         $this->condizioni_ri = $condizioni_ri;
     }
 
-    /**
-     * @return float
-     */
-    public function getPrezzoRi(): float
-    {
-        return $this->prezzo_ri;
-    }
-
-    /**
-     * @param float $prezzo_ri
-     */
-    public function setPrezzoRi(float $prezzo_ri): void
-    {
-        $this->prezzo_ri = $prezzo_ri;
-    }
 
 }
 ?>
