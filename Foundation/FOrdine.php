@@ -64,29 +64,6 @@ class FOrdine extends FDataBase{
         }
         else return null;
     }
-
-    /**Metodo che restituisce i commenti relativi a un prodotto
-     * @param $idprodotto prodotto desiderato
-     * @return array|null di commenti
-     */
-    
-
-    /** Metodo che restituisce i commenti relativi all'utente
-     * @param $idutente utente cercato
-     * @return array|null di commenti
-     */
-    
-
-    /** Metodo che restituisce commenti con un determiato valore
-     * @param $contenuto da cercare
-     * @param $attributo su cui cercare $contenuto
-     * @return array|null di commenti
-     */
-    
-
-    /** Metodo che conta tutti i commenti
-     * @return mixed|null
-     */
-    
+  
 }
 ?>

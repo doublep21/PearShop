@@ -67,6 +67,48 @@ class FImmagini extends FdataBase{
         }
         else return null;
     }
+
+     /**
+     * Aggiornamento delle immagini nel dbms
+     * @param $foto
+     * @return bool
+     */
+    public function updateFoto($foto){
+        $idimm = $imm->get_id_img();
+        $nome=$this->update($idimm, "Nome", $foto->get_nome());
+        $type = $this->update($idimm, "Type", $foto->get_type());
+        $size = $this->update($idimm, "Size", $foto->get_size());
+        $img = $this->update($idimm, "img", $foto->get_img());
+        if($nome && $type && $size && $img){
+            return true;
+        } else {
+            return false;
+        }
+
+         /**
+	 * Metodo che elimina un immagine dal database
+	 * @param $id_img string 
+	 * @return boolean
+	 */
+	public function deleteCodice($id_img)
+	{
+		$query = " DELETE FROM".$this->_tabella." WHERE id_immagine =".$id_img.";";
+		try
+		{
+			$this->_connessione->beginTransaction();
+			$pdostmt = $this->_connessione->prepare($query);
+			$pdostmt->execute();
+			$this->_connessione->commit();
+			return true;
+		}
+		catch(PDOException $e)
+		{
+			$this->_connessione->rollBack();
+    	 	echo "Attenzione: " . $e->getMessage();
+    	 	return false;
+		}
+	}
+	
 }
 
 ?>

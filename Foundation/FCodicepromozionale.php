@@ -66,28 +66,57 @@ class FCodicepromozionale extends FDataBase{
         else return null;
     }
 
-    /**Metodo che restituisce i commenti relativi a un prodotto
-     * @param $idprodotto prodotto desiderato
-     * @return array|null di commenti
+    /**
+     * Metodo per verificare la presenza di un codice 
+     * @param $codice string 
+     * @return bool|null
      */
-    
+    public function existCodice($codice)
+    {
+        $query = " SELECT * FROM ".$this->_tabella." WHERE Codice= '".$codice."';";
+        try {
+            $this->_connessione->beginTransaction();
+            $pdostmt = $this->_connessione->prepare($query);
+            $pdostmt->execute();
+            $risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+            $this->_connessione->commit();
+            if(($risultato != null) && (count($risultato)>0)){
+                return true;
+            }
+            else return false;
 
-    /** Metodo che restituisce i commenti relativi all'utente
-     * @param $idutente utente cercato
-     * @return array|null di commenti
-     */
-   
+        }
+        catch (PDOException $e){
+            $this->_connessione->rollBack();
+            echo "Errore: ".$e->getMessage();
+            return null;
 
-    /** Metodo che restituisce commenti con un determiato valore
-     * @param $contenuto da cercare
-     * @param $attributo su cui cercare $contenuto
-     * @return array|null di commenti
-     */
-    
+        }
+    }
 
-    /** Metodo che conta tutti i commenti
-     * @return mixed|null
-     */
+    /**
+	 * Metodo che elimina un codice dal database
+	 * @param $codice string 
+	 * @return boolean
+	 */
+	public function deleteCodice($codice)
+	{
+		$query = " DELETE FROM".$this->_tabella." WHERE Codice =".$codice.";";
+		try
+		{
+			$this->_connessione->beginTransaction();
+			$pdostmt = $this->_connessione->prepare($query);
+			$pdostmt->execute();
+			$this->_connessione->commit();
+			return true;
+		}
+		catch(PDOException $e)
+		{
+			$this->_connessione->rollBack();
+    	 	echo "Attenzione: " . $e->getMessage();
+    	 	return false;
+		}
+	}
     
 }
 ?>
