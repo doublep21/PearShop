@@ -24,7 +24,7 @@ class FCodicepromozionale extends FDataBase{
     }
 
     /** Metodo che consente di creare un oggetto da una riga della tabella codice promozionale
-     * @param $riga lista del valore della tabella codice promozionale
+     * @param $riga array lista del valore della tabella codice promozionale
      * @return Ecodicipromozonali $codpro
      */
     public function getCodprom($riga){
@@ -34,10 +34,10 @@ class FCodicepromozionale extends FDataBase{
     }
 
     /** Metodo che carica un codice promozionale nel database
-     * @param $idcod del codice promozionale
-     * @return Ecodicipromozonali|string|null
+     * @param $idcod int del codice promozionale
+     * @return Ecodicipromozionali|string|null
      */
-    public function loadById($idcod)
+    public function loadById(int $idcod)
     {
         $riga = parent::loadById($idcod);
         $listacod = $riga[0];
@@ -52,7 +52,7 @@ class FCodicepromozionale extends FDataBase{
      * @param $multipleid
      * @return array|null
      */
-    public function loadMultipleById($multipleid)
+    public function loadMultipleById( $multipleid)
     {
         $listacod = parent::loadMultipleById($multipleid);
         $arrayobj = array();
