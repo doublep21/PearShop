@@ -5,7 +5,7 @@ class FCarello extends FDataBase{
     {
         parent::__construct();
         $this->_tabella = 'Carrello';
-        $this->_valore ='(:quantitaCarello)';
+        $this->_valore ='(:quantitaCarrello)';
         $this->_classe = 'FCarrello';
     }
 
@@ -17,16 +17,16 @@ class FCarello extends FDataBase{
     public static function bind(PDOStatement $pdostatement, Ecarrello $carrello)
     {
         //$pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
-        $pdostatement->bindValue(':quantitaCarello',$carello->get_quantitaCarrello(), PDO::PARAM_INT);
+        $pdostatement->bindValue(':quantitaCarrello',$carrello->get_quantitaCarrello(), PDO::PARAM_INT);
 
     }
 
-    /** Metodo che consente di creare un oggetto da una riga della tabella carello
-     * @param $riga lista del valore della tabella carello
+    /** Metodo che consente di creare un oggetto da una riga della tabella carrello
+     * @param $riga lista del valore della tabella carrello
      * @return Ecarrello $carrello
      */
     /*public function getCarrello($riga){
-        $carrello = new Ecarrello ($riga['quantitaCarello']);
+        $carrello = new Ecarrello ($riga['quantitaCarrello']);
         $carrello->setId($riga['id']);
         return $carrello;
     }
