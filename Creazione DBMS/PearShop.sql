@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Set 04, 2022 alle 20:21
+-- Creato il: Set 04, 2022 alle 21:19
 -- Versione del server: 5.6.33-log
 -- Versione PHP: 8.0.22
 
@@ -177,7 +177,7 @@ INSERT INTO `Utente` (`Nome`, `Cognome`, `Password`, `id_utente`, `Admin`, `Emai
 -- Indici per le tabelle `Carrello`
 --
 ALTER TABLE `Carrello`
-  ADD PRIMARY KEY (`id_carello`),
+  ADD PRIMARY KEY (`id_carrello`),
   ADD KEY `id_ute` (`id_ute`),
   ADD KEY `id_prodN` (`id_prodN`),
   ADD KEY `id_ricond` (`id_ricond`),
@@ -249,7 +249,7 @@ ALTER TABLE `Utente`
 -- AUTO_INCREMENT per la tabella `Carrello`
 --
 ALTER TABLE `Carrello`
-  MODIFY `id_carello` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_carrello` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `CodicePromozionale`
