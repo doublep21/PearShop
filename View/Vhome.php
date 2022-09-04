@@ -8,6 +8,11 @@ class Vhome extends View {
      * @var array $_main_button
      */
     // private $_main_button=array();
+    // private $_accessButton;
+    /**
+     * @var array $_accessButton
+     */
+    private $_bar_button;
     // /**
     //  * @var string $_side_content
     //  */
@@ -35,7 +40,7 @@ class Vhome extends View {
      */
     public function mostraPagina() {
         // $this->assign('right_content',$this->_side_content);
-        // $this->assign('tasti_laterali',$this->_side_button);
+        $this->assign('_bar_button',$this->_bar_button);
         $this->display('home_'.$this->_layout.'.tpl');
     }
     /**
@@ -73,27 +78,28 @@ class Vhome extends View {
     public function impostaPaginaGuest() {
         $this->assign('title','Pearshop');
         // $this->assign('content_title','Benvenuto ospite');
+        $this->addregisterbutton();
         $this->assign('main_content',$this->_main_content);
         // $this->assign('menu',$this->_main_button);
         // $this->aggiungiModuloLogin();
-        // $this->aggiungiTastoRegistrazione();
+        
     }
     /**
-     * aggiunge il tasto logout al menu laterale
+     * aggiunge il tasto logout
      */
-    // public function aggiungiTastoLogout() {
-    //     $tasto_logout=array();
-    //     $tasto_logout[]=array('testo' => 'Logout', 'link' => '?controller=registrazione&task=esci');
-    //     $this->_side_button=array_merge($tasto_logout,$this->_side_button);
-    // }
+    public function addlogoutbutton() {
+        $this->_bar_button= array('testo' => 'Logout', 'link' => '?controller=register&task=exit');
+    }
     /**
      * aggiunge il tasto per la registrazione nel menu laterale (per gli utenti non autenticati)
      */
-    // public function aggiungiTastoRegistrazione() {
-    //     $menu_registrazione=array();
-    //     $menu_registrazione[]=array('testo' => 'Attivati', 'link' => '?controller=registrazione&task=attivazione');
-    //     $this->_side_button[]=array_merge(array('testo' => 'Registrati', 'link' => '?controller=registrazione&task=registra', 'submenu' => $menu_registrazione),$this->_side_button);
-    // }
+    public function addregisterbutton() {
+        // $register_button=array();
+        // $register_button[]=array('testo' => 'Register', 'link' => '?controller=register&task=register');
+        // $this->_side_button[]=array_merge(array('testo' => 'Registrati', 'link' => '?controller=registrazione&task=registra', 'submenu' => $menu_registrazione),$this->_side_button);
+        // $this->_bar_button=array_merge($register_button,$this->_bar_button);
+        $this->_bar_button= array('testo' => 'Register', 'link' => '?controller=register&task=register');
+    }
     /**
      * imposta i tasti per le categorie nel menu principale
      */

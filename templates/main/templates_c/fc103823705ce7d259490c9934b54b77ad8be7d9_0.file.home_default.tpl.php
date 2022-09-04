@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-07-11 18:01:08
+/* Smarty version 4.1.0, created on 2022-09-04 20:12:14
   from 'C:\xampp\pearshop\templates\main\template\home_default.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62cc4944630581_69714567',
+  'unifunc' => 'content_6314ea7e1e8638_05599019',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc103823705ce7d259490c9934b54b77ad8be7d9' => 
     array (
       0 => 'C:\\xampp\\pearshop\\templates\\main\\template\\home_default.tpl',
-      1 => 1657555264,
+      1 => 1662315132,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cc4944630581_69714567 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6314ea7e1e8638_05599019 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="zxx">
 
@@ -130,7 +130,9 @@ function content_62cc4944630581_69714567 (Smarty_Internal_Template $_smarty_tpl)
                                 </ul>
                             </div> -->
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['_bar_button']->value['link'];?>
+"><i class="fa fa-user"></i> <?php echo $_smarty_tpl->tpl_vars['_bar_button']->value['testo'];?>
+</a>
                             </div>
                         </div>
                     </div>
