@@ -5,9 +5,10 @@ class FOrdine extends FDataBase{
     {
         parent::__construct();
         $this->_tabella = 'Ordine';
-        $this->_valore ='(:prezzo_tot,:ind_spedizione,:data_ora,:codice_promozionale,:carello)';
+        $this->_valore ='(:prezzo_tot,:ind_spedizione,:data_ora,:codice_promozionale,:carrello)';
         $this->_classe = 'FOrdine';
     }
+/********************************************************************************************************************** */
 
     /**
      * Metodo che lega gli attributi del ordine da inserire mediante il parametro INSERT

@@ -8,9 +8,9 @@ class Eusers  {
     private $password;
 	private $stato;
     private $commenti;
-    private $carello;
+    private $carrello;
 	
-	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,Ecarello $carello, Ecommenti $commenti){
+	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,Ecarrello $carrello, Ecommenti $commenti){
 		$this->id_utente=$id_utenteC;	
         $this->nome=$nomeC;
         $this->cognome=$cognomeC;
@@ -18,7 +18,7 @@ class Eusers  {
         $this->password=$passwordC;
 		$this->stato=$statoC;
         $this->commenti = $commenti;
-        $this->carello = $carello;	
+        $this->carrello = $carrello;	
 	}
 
 	//----------------GET----------------//
@@ -28,6 +28,10 @@ class Eusers  {
     public function getCommenti(): Ecommenti
     {
         return $this->commenti;
+    }
+    public function getCarrello(): Ecarrello
+    {
+        return $this->carrello;
     }
 
     public function get_nome(){
@@ -68,6 +72,9 @@ class Eusers  {
     }
     public function setCommenti(Ecommenti $commenti): void{
         $this->commenti = $commenti;
+    }
+    public function setCarrello(Ecarrello $carrello): void{
+        $this->carrello = $carrello;
     }
 	
 }
