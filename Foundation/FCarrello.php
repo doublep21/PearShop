@@ -4,37 +4,37 @@ class FCarello extends FDataBase{
     public function __construct()
     {
         parent::__construct();
-        $this->_tabella = 'Carello';
+        $this->_tabella = 'Carrello';
         $this->_valore ='(:quantitaCarello)';
-        $this->_classe = 'FCarello';
+        $this->_classe = 'FCarrello';
     }
 
     /**
-     * Metodo che lega gli attributi del carello da inserire mediante il parametro INSERT
+     * Metodo che lega gli attributi del carrello da inserire mediante il parametro INSERT
      * @param $pdostatement
-     * @param $carello Ecarello che deve essere inserito nel database
+     * @param $carrello Ecarrello che deve essere inserito nel database
      */
-    public static function bind(PDOStatement $pdostatement, Ecarello $carello)
+    public static function bind(PDOStatement $pdostatement, Ecarrello $carrello)
     {
         //$pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
-        $pdostatement->bindValue(':quantitaCarello',$carello->get_quantitaCarello(), PDO::PARAM_INT);
+        $pdostatement->bindValue(':quantitaCarello',$carello->get_quantitaCarrello(), PDO::PARAM_INT);
 
     }
 
     /** Metodo che consente di creare un oggetto da una riga della tabella carello
      * @param $riga lista del valore della tabella carello
-     * @return Ecarello $carello
+     * @return Ecarrello $carrello
      */
-    /*public function getCarello($riga){
-        $carello = new Ecarello ($riga['quantitaCarello']);
-        $carello->setId($riga['id']);
-        return $carello;
+    /*public function getCarrello($riga){
+        $carrello = new Ecarrello ($riga['quantitaCarello']);
+        $carrello->setId($riga['id']);
+        return $carrello;
     }
     */
 
-    /** Metodo che carica un carello nel database
-     * @param $id del carello
-     * @return Ecarello|string|null
+    /** Metodo che carica un carrello nel database
+     * @param $id del carrello
+     * @return Ecarrello|string|null
      */
     /*public function loadById($id)
     {
@@ -47,7 +47,7 @@ class FCarello extends FDataBase{
         else return null;
     }
     */
-    /** Metodo che carica un gruppo di carello nel database data una lista di id
+    /** Metodo che carica un gruppo di carrello nel database data una lista di id
      * @param $multipleid
      * @return array|null
      */

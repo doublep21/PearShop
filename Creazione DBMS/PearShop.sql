@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Carrello` (
-  `id_carello` int(11) NOT NULL,
+  `id_carrello` int(11) NOT NULL,
   `id_ute` int(11) NOT NULL,
   `Quantita` int(11) NOT NULL,
   `id_prodN` int(11) NOT NULL,
