@@ -106,7 +106,7 @@
                                 </ul>
                             </div> -->
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="{$_bar_button.link}"><i class="fa fa-user"></i> {$_bar_button.testo}</a>
                             </div>
                         </div>
                     </div>
