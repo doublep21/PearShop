@@ -157,6 +157,10 @@ class FPersistentManager{
                 $fus = new Fusers();
                 $risultato = $fus->update($id,$attributo,$valore);
                 break;
+            case "Eimmagine":
+                $Fimm = new FImmagini();
+                $id = $Fimm->update($id,$attributo,$valore);
+                break;
             default:
                 $risultato = false;
         }
@@ -316,4 +320,15 @@ class FPersistentManager{
         $r = $commento->contaCommenti();
         return $r;
     }
+
+    /**Metodo per aggiornare la foto di un prodotto
+     * @param $foto Eimmagine aggiornata
+     * @return bool
+     */
+    public function updateFoto(Eimmagine $foto) {
+        $fimm = new FImmagini();
+        $esito= $fimm->updateFoto($foto);
+        return $esito;
+    }
+
 }
