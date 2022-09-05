@@ -9,23 +9,22 @@ class FImmagini extends FdataBase{
     }
 
     /** Metodo che lega gli attributi dell'immagine da inserire mediante il parametro INSERT
-     * @param PDOStatement $pdostatement
-     * @param Eimmagine $img
-     * @return void
-     */
+    * @param PDOStatement $pdostatement
+    * @param Eimmagine $img
+    * @return void
+    */
     public static function bind(PDOStatement $pdostatement, Eimmagine $img){
         $pdostatement->bindValue(':id_img',NULL, PDO::PARAM_INT);
         $pdostatement->bindValue(':nome',$img->get_nome(), PDO::PARAM_STR);
         $pdostatement->bindValue(':type',$img->get_type(), PDO::PARAM_STR);
         $pdostatement->bindValue(':size',$img->get_size(), PDO::PARAM_INT);
         $pdostatement->bindValue(':img',$img->get_img(), PDO::PARAM_LOB);
-    
     }
 
     /** Metodo che crea un oggetto di tipo Eimmagini
-     * @param array $riga rappresenta la tupla
-     * @return Eimmagini $img
-     */
+    * @param array $riga rappresenta la tupla
+    * @return Eimmagini $img
+    */
     public static function buildImg(array $riga){
         $img = new Eimmagine($riga['nome'],$riga['type'],$riga['size'],$riga['img']);
         $img->set_id_img($riga['id_img']);
@@ -33,9 +32,9 @@ class FImmagini extends FdataBase{
     }
 
     /** Metodo che carica un immagine nel database
-     * @param $id dell'immagine 
-     * @return Eimmagine|string|null
-     */
+    * @param $id dell'immagine 
+    * @return Eimmagine|string|null
+    */
     public function loadById($id_immagine){
         $riga = parent::loadById($id_immagine);
         if(($riga!=null) && (count($riga)>0)){
@@ -68,8 +67,7 @@ class FImmagini extends FdataBase{
     * @param $foto Eimmagine
     * @return bool
     */
-    public function updateFoto(Eimmagine $foto)
-    {
+    public function updateFoto(Eimmagine $foto){
         $idimm = $foto->get_id_img();
         $nome = $this->update($idimm, "Nome", $foto->get_nome());
         $type = $this->update($idimm, "Type", $foto->get_type());
@@ -87,26 +85,22 @@ class FImmagini extends FdataBase{
 	* @param $id_img string 
 	* @return boolean
 	*/
-	public function deleteFoto($id_img)
-	{
+	public function deleteFoto($id_img){
 		$query = " DELETE FROM".$this->_tabella." WHERE id_immagine =".$id_img.";";
-		try
-		{
+		try{
 			$this->_connessione->beginTransaction();
 			$pdostmt = $this->_connessione->prepare($query);
 			$pdostmt->execute();
 			$this->_connessione->commit();
 			return true;
 		}
-		catch(PDOException $e)
-		{
+		catch(PDOException $e){
 			$this->_connessione->rollBack();
     	 	echo "Attenzione: " . $e->getMessage();
     	 	return false;
 		}
 	}
 	
-
 }
 
 ?>

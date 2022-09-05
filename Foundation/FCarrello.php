@@ -1,8 +1,7 @@
 <?php
 
 class FCarello extends FDataBase{
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         $this->_tabella = 'Carrello';
         $this->_valore ='(:quantitaCarrello)';
@@ -43,7 +42,20 @@ class FCarello extends FDataBase{
         else return null;
     }
 
-    
+    /**
+    * Aggiornamento del carrello nel dbms
+    * @param $car Ecarrello
+    * @return bool
+    */
+    public function updateCarrello(Ecarrello $car){
+        $idimm = $car->get_id_img();
+        $quantita = $this->update($idimm, "Quantita", $car->get_quantitaCarrello());
+        if ($quantita){
+            return true;
+        } else {
+            return false;
+        }
+    }
     
    
     
