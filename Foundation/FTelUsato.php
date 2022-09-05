@@ -16,7 +16,7 @@ class FTelUsato extends FDataBase {
      */
     public static function bind(PDOStatement $pdostatement, Etelusato $prodotto)
     {
-        //$pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
+        $pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
         $pdostatement->bindValue(':condizioni',$prodotto->getcondizioni(), PDO::PARAM_STR);
         $pdostatement->bindValue(':data_acquisto',$prodotto->getdataaquisto(), PDO::PARAM_STR);
         $pdostatement->bindValue('prezzo_us',$prodotto->get_prezzo_us(), PDO::PARAM_STR);
@@ -35,17 +35,14 @@ class FTelUsato extends FDataBase {
     public static function buildTelUsato(array $riga)
     {
         $prodotto = new Etelusato($riga['condizioniT'], $riga['data_acquistoT'],$riga['prezzo_usT'],$riga['imeiT'],$riga['condizioni_schermoT'],$riga['condizioni_batteriaT'],$riga['condizioni_usuraT'],$riga['prezzoAcquistoT']);
-        //$prodotto->set_id($riga['id']);
+        $prodotto->set_id($riga['id']);
         return $prodotto;
     }
     
-
-    
     /** Metodo che carica un prodotto nel database
-     * @param $id del prodotto
-     * @return Etelusato|string|null
-     */
-    /*
+    * @param $id del prodotto
+    * @return Etelusato|string|null
+    */
     public function loadById($id)
     {
         $riga = parent::loadById($id);
@@ -56,13 +53,11 @@ class FTelUsato extends FDataBase {
         }
         else return null;
     }
+    
+    /** Metodo che carica un gruppo di prodotti nel database data una lista di id
+    * @param $multipleid
+    * @return array|null
     */
-
-     /** Metodo che carica un gruppo di prodotti nel database data una lista di id
-     * @param $multipleid
-     * @return array|null
-     */
-    /*
     public function loadMultipleById($multipleid)
     {
         $listaprodotti = parent::loadMultipleById($multipleid);
@@ -76,6 +71,42 @@ class FTelUsato extends FDataBase {
         }
         else return null;
     }
-    */
+
+    /**
+     * Metodo che permette di effettuare una ricerca di prodotti per marca
+     * @param $nome array di id prodotti
+     * @return array di EtelNuovo
+     */
+    public function ricercaPerMarca($nome){
+        if(count($nome)!=0){
+            $query = "SELECT marca FROM prodotto WHERE marca=".$nome ;
+            for ($i=1; $i<count($nome); $i++){
+                $query = "SELECT id_prodotto FROM prodotto  WHERE marca=".$nome[$i];
+            }
+        }else{
+            $query = "SELECT * FROM prodotto";
+        }
+        $query = $query.";";
+
+        try {
+            $this->_connessione->beginTransaction();
+            $pdostmt = $this->_connessione->prepare($query);
+            $pdostmt->execute();
+            $risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+            $this->_connessione->commit();
+        }
+        catch (PDOException $e)
+        {
+            $this->_connessione->rollBack();
+            echo "Attenzione, errore: " . $e->getMessage();
+        }
+        $arrynome = array();
+        foreach ($rows as  $value) {
+            array_push($arrynome, $value['id_prodotto']);
+        }
+        $arrryprod = $this->loadMultipleById($arrynome);
+        return $arrryprod;
+    }
+    
 }
 ?>

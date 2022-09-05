@@ -70,6 +70,42 @@ class FAccessori extends FDataBase {
         }
         else return null;
     }
+
+    /**
+     * Metodo che permette di effettuare una ricerca di prodotti per marca
+     * @param $nome array di id prodotti
+     * @return array di EtelNuovo
+     */
+    public function ricercaPerMarca($nome){
+        if(count($nome)!=0){
+            $query = "SELECT marca FROM prodotto WHERE marca=".$nome ;
+            for ($i=1; $i<count($nome); $i++){
+                $query = "SELECT id_prodotto FROM prodotto  WHERE marca=".$nome[$i];
+            }
+        }else{
+            $query = "SELECT * FROM prodotto";
+        }
+        $query = $query.";";
+
+        try {
+            $this->_connessione->beginTransaction();
+            $pdostmt = $this->_connessione->prepare($query);
+            $pdostmt->execute();
+            $risultato = $pdostmt->fetchAll(PDO::FETCH_ASSOC);
+            $this->_connessione->commit();
+        }
+        catch (PDOException $e)
+        {
+            $this->_connessione->rollBack();
+            echo "Attenzione, errore: " . $e->getMessage();
+        }
+        $arrynome = array();
+        foreach ($rows as  $value) {
+            array_push($arrynome, $value['id_prodotto']);
+        }
+        $arrryprod = $this->loadMultipleById($arrynome);
+        return $arrryprod;
+    }
 }
 
 ?>
