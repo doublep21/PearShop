@@ -7,7 +7,7 @@ class Fusers extends FdataBase {
     {
         parent::__construct();
         $this->_tabella = 'Utente';
-        $this->_valore ='(:id,:nome,:cognome,:email,:password :stato)';
+        $this->_valore ='(:id,:nome,:cognome,:email,:password,:stato)';
         $this->_classe = 'Fuser';
     }
 
@@ -122,7 +122,7 @@ class Fusers extends FdataBase {
     public function buildRow($riga)
     {
         $comm = new FCommenti();
-        $lista = $comm->loadByIduser($riga['id']);
+        $lista = $comm->loadById($riga['id']);
         $riga['commenti'] = $lista;
         return $riga;
     }
