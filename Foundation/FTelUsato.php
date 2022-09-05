@@ -1,6 +1,6 @@
 <?php
 
-class FTelUsato extends FProdotto{
+class FTelUsato extends FDataBase {
     public function __construct()
     {
         parent::__construct();
@@ -17,8 +17,8 @@ class FTelUsato extends FProdotto{
     public static function bind(PDOStatement $pdostatement, Etelusato $prodotto)
     {
         //$pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
-        $pdostatement->bindValue(':condizioni',$prodotto->get_condizioni(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':data_acquisto',$prodotto->get_data_aquisto(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':condizioni',$prodotto->getcondizioni(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':data_acquisto',$prodotto->getdataaquisto(), PDO::PARAM_STR);
         $pdostatement->bindValue('prezzo_us',$prodotto->get_prezzo_us(), PDO::PARAM_STR);
         $pdostatement->bindValue(':imei',$prodotto->get_imei(),PDO::PARAM_INT);
         $pdostatement->bindValue(':condizioni_schermo',$prodotto->get_cond_schermo(), PDO::PARAM_INT);

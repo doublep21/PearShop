@@ -30,7 +30,7 @@ class FPersistentManager{
 				$id = $Fcommento->store($oggetto);
 				break;
 			case "Eprodotti":
-				$Fprodotto = new FProdotto();
+				$Fprodotto = new FtelNuovo();
 				$id = $Fprodotto->store($oggetto);
 				break;
 			case "Eaccessori":
@@ -55,7 +55,7 @@ class FPersistentManager{
     /** Metodo che effettua la load dato l'id e il nome dell'oggetto da prendere
      * @param $oggetto mixed nome dell'oggetto
      * @param $id int dell'oggetto da recuperare
-     * @return Eaccessori|Ecommenti|Eprodotti|Eprodotto|Eusers|string|null
+     * @return Eaccessori|Ecommenti|Eprodotti|EtelNuovo|Eusers|string|null
      */
     public function loadById($oggetto,int $id)
     {
@@ -69,7 +69,7 @@ class FPersistentManager{
                 $risultato = $fcommento->loadById($id);
                 break;
             case "prodotto":
-                $fprodotto = new FProdotto();
+                $fprodotto = new FtelNuovo();
                 $risultato = $fprodotto->loadById($id);
                 break;
             case "accessori":
@@ -102,7 +102,7 @@ class FPersistentManager{
                 $risultato = $fcom->loadMultipleById($id);
                 break;
             case "prodotto":
-                $fp = new FProdotto();
+                $fp = new FtelNuovo();
                 $risultato = $fp->loadMultipleById($id);
                 break;
             case "accessorio":

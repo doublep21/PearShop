@@ -1,6 +1,6 @@
 <?php
 
-class FAccessori extends FProdotto{
+class FAccessori extends FDataBase {
     public function __construct()
     {
         parent::__construct();
@@ -17,7 +17,7 @@ class FAccessori extends FProdotto{
     public static function bind(PDOStatement $pdostatement, Eaccessori $accessori)
     {
         $pdostatement->bindValue(':id_accessorio',NULL, PDO::PARAM_INT);
-        $pdostatement->bindValue(':prodotto_abbinato',$prodotto->get_prodotto_abbinato(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':prodotto_abbinato',$accessori->get_prodotto_abbinato(), PDO::PARAM_STR);
     
     }
 
@@ -28,8 +28,8 @@ class FAccessori extends FProdotto{
     public static function buildAccessorio(array $riga)
     {
         $accessori = new Eaccessori($riga['prodotto_abbinatoA']);
-        $accessori->set_id($riga['id_accessorio']);
-        $accessori->set_immagini($riga['immagini']);
+        $accessori->setid($riga['id_accessorio']);
+        $accessori->setimmagini($riga['immagini']);
         return $accessori;
     }
 
@@ -39,7 +39,7 @@ class FAccessori extends FProdotto{
     }*/
 
     /** Metodo che carica un accessorio nel database
-     * @param $id del accessorio
+     * @param $id int del accessorio
      * @return Eaccessori|string|null
      */
     public function loadById($id_accessorio)
