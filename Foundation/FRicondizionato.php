@@ -31,7 +31,6 @@ class FRicondizionato extends FDataBase {
     {
         $prodotto = new Ericondizionato($riga['data_ricondizionatoR'], $riga['condizioniR'],$riga['prezzoR']);
         $prodotto->setId($riga['id']);
-        $prodotto->setElencoCommenti($riga['elenco_commenti']);
         $prodotto->setImmagini($riga['immagini']);
         return $prodotto;
     }
@@ -40,7 +39,7 @@ class FRicondizionato extends FDataBase {
      * @param $id int del prodotto
      * @return Ericondizionato
      */
-    public function loadById($id)
+    public function loadById(int $id)
     {
         $riga = parent::loadById($id);
         if(($riga!=null) && (count($riga)>0)){

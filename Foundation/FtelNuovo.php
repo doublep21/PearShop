@@ -48,7 +48,7 @@ class FtelNuovo extends FDataBase
      * @param $id int del prodotto
      * @return EtelNuovo|string|null
      */
-    public function loadById($id)
+    public function loadById(int $id)
     {
         $riga = parent::loadById($id);
         if(($riga!=null) && (count($riga)>0)){
@@ -60,10 +60,10 @@ class FtelNuovo extends FDataBase
     }
 
     /** Metodo che carica un gruppo di prodotti nel database data una lista di id
-     * @param $multipleid
+     * @param $multipleid array
      * @return array|null
      */
-    public function loadMultipleById($multipleid)
+    public function loadMultipleById(array $multipleid)
     {
         $listaprodotti = parent::loadMultipleById($multipleid);
         if(($listaprodotti != null) && (count($listaprodotti)>0)){

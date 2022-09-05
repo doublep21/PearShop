@@ -34,7 +34,7 @@ class FCommenti extends FDataBase{
     }
 
     /** Metodo che carica un commento nel database
-     * @param $id del commento
+     * @param $id int del commento
      * @return Ecommenti|string|null
      */
     public function loadById($id)
@@ -70,7 +70,7 @@ class FCommenti extends FDataBase{
      * @param $idprodotto prodotto desiderato
      * @return array|null di commenti
      */
-    public function loadProdotto($idprodotto){
+    public function loadProdotto(int $idprodotto){
         $query = "SELECT * FROM ".$this->_tabella." WHERE id_prodotto=".$idprodotto.";";
         try {
             $this->_connessione->beginTransaction();
@@ -95,10 +95,10 @@ class FCommenti extends FDataBase{
     }
 
     /** Metodo che restituisce i commenti relativi all'utente
-     * @param $idutente utente cercato
+     * @param $idutente int utente cercato
      * @return array|null di commenti
      */
-    public function loadByIdUtente($idutente)
+    public function loadByIdUtente(int $idutente)
     {
         $query = "SELECT * FROM ".$this->_tabella." WHERE id_utente=".$idutente.";";
         try {

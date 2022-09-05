@@ -91,7 +91,7 @@ class FImmagini extends FdataBase{
 	 * @param $id_img string 
 	 * @return boolean
 	 */
-	public function deleteCodice($id_img)
+	public function deleteFoto($id_img)
 	{
 		$query = " DELETE FROM".$this->_tabella." WHERE id_immagine =".$id_img.";";
 		try

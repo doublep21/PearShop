@@ -17,15 +17,15 @@ class FCodicepromozionale extends FDataBase{
     public static function bind(PDOStatement $pdostatement, Ecodicipromozionali $codpro)
     {
         $pdostatement->bindValue(':idcod',NULL, PDO::PARAM_INT);
-        $pdostatement->bindValue(':codice',$codpro->get_codice(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':data_scadenza',$codpro->get_data_scadenza(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':toggle',$codpro->get_toggle(), PDO::PARAM_BOOL);
-        $pdostatement->bindValue(':utilizzi',$codpro->get_utilizzi(), PDO::PARAM_INT);
+        $pdostatement->bindValue(':codice',$codpro->getcodice(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':data_scadenza',$codpro->getdatascadenza(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':toggle',$codpro->gettoggle(), PDO::PARAM_BOOL);
+        $pdostatement->bindValue(':utilizzi',$codpro->getutilizzi(), PDO::PARAM_INT);
     }
 
     /** Metodo che consente di creare un oggetto da una riga della tabella codice promozionale
      * @param $riga array lista del valore della tabella codice promozionale
-     * @return Ecodicipromozonali $codpro
+     * @return Ecodicipromozionali $codpro
      */
     public function getCodprom($riga){
         $codpro = new Ecodicipromozionali ($riga['codice'], $riga['data_scadenza'], $riga['toggle'], $riga['utilizzi']);
@@ -49,7 +49,7 @@ class FCodicepromozionale extends FDataBase{
     }
 
     /** Metodo che carica un gruppo di commenti nel database data una lista di id
-     * @param $multipleid
+     * @param $multipleid array
      * @return array|null
      */
     public function loadMultipleById( $multipleid)
@@ -71,7 +71,7 @@ class FCodicepromozionale extends FDataBase{
      * @param $codice string 
      * @return bool|null
      */
-    public function existCodice($codice)
+    public function existCodice(string $codice)
     {
         $query = " SELECT * FROM ".$this->_tabella." WHERE Codice= '".$codice."';";
         try {
@@ -99,7 +99,7 @@ class FCodicepromozionale extends FDataBase{
 	 * @param $codice string 
 	 * @return boolean
 	 */
-	public function deleteCodice($codice)
+	public function deleteCodice(string $codice)
 	{
 		$query = " DELETE FROM".$this->_tabella." WHERE Codice =".$codice.";";
 		try
