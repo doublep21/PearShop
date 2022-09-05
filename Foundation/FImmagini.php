@@ -1,8 +1,7 @@
 <?php
 
 class FImmagini extends FdataBase{
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         $this->_tabella = 'Immagini';
         $this->_valore ='(:id_img,:nome,:type,:size)';
@@ -14,8 +13,7 @@ class FImmagini extends FdataBase{
      * @param Eimmagine $img
      * @return void
      */
-    public static function bind(PDOStatement $pdostatement, Eimmagine $img)
-    {
+    public static function bind(PDOStatement $pdostatement, Eimmagine $img){
         $pdostatement->bindValue(':id_img',NULL, PDO::PARAM_INT);
         $pdostatement->bindValue(':nome',$img->get_nome(), PDO::PARAM_STR);
         $pdostatement->bindValue(':type',$img->get_type(), PDO::PARAM_STR);
@@ -28,8 +26,7 @@ class FImmagini extends FdataBase{
      * @param array $riga rappresenta la tupla
      * @return Eimmagini $img
      */
-    public static function buildImg(array $riga)
-    {
+    public static function buildImg(array $riga){
         $img = new Eimmagine($riga['nome'],$riga['type'],$riga['size'],$riga['img']);
         $img->set_id_img($riga['id_img']);
         return $img;
@@ -39,8 +36,7 @@ class FImmagini extends FdataBase{
      * @param $id dell'immagine 
      * @return Eimmagine|string|null
      */
-    public function loadById($id_immagine)
-    {
+    public function loadById($id_immagine){
         $riga = parent::loadById($id_immagine);
         if(($riga!=null) && (count($riga)>0)){
             $listimg = $riga[0];
@@ -50,12 +46,11 @@ class FImmagini extends FdataBase{
         else return null;
     }
 
-     /** Metodo che carica un gruppo di immagini nel database data una lista di id
-     * @param $multipleid
-     * @return array|null
-     */
-    public function loadMultipleById($multipleid)
-    {
+    /** Metodo che carica un gruppo di immagini nel database data una lista di id
+    * @param $multipleid
+    * @return array|null
+    */
+    public function loadMultipleById($multipleid){
         $listaimg = parent::loadMultipleById($multipleid);
         if(($listaimg != null) && (count($listaimg)>0)){
             $arrayobj = array();
@@ -68,11 +63,11 @@ class FImmagini extends FdataBase{
         else return null;
     }
 
-     /**
-     * Aggiornamento delle immagini nel dbms
-     * @param $foto Eimmagine
-     * @return bool
-     */
+    /**
+    * Aggiornamento delle immagini nel dbms
+    * @param $foto Eimmagine
+    * @return bool
+    */
     public function updateFoto(Eimmagine $foto)
     {
         $idimm = $foto->get_id_img();
@@ -80,17 +75,18 @@ class FImmagini extends FdataBase{
         $type = $this->update($idimm, "Type", $foto->get_type());
         $size = $this->update($idimm, "Size", $foto->get_size());
         $img = $this->update($idimm, "img", $foto->get_img());
-        if ($nome && $type && $size && $img) {
+        if ($nome && $type && $size && $img){
             return true;
         } else {
             return false;
         }
     }
-         /**
-	 * Metodo che elimina un immagine dal database
-	 * @param $id_img string 
-	 * @return boolean
-	 */
+
+    /**
+	* Metodo che elimina un immagine dal database
+	* @param $id_img string 
+	* @return boolean
+	*/
 	public function deleteFoto($id_img)
 	{
 		$query = " DELETE FROM".$this->_tabella." WHERE id_immagine =".$id_img.";";
