@@ -68,7 +68,7 @@ class FRicondizionato extends FDataBase {
     * @param $nome array di id prodotti
     * @return array di EtelNuovo
     */
-    public function ricercaPerNome($nome){
+    public function ricercaPerMarca($nome){
         if(count($nome)!=0){
             $query = "SELECT marca FROM prodotto WHERE marca=".$nome ;
             for ($i=1; $i<count($nome); $i++){
