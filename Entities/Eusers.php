@@ -1,15 +1,26 @@
 <?php
 
-class Eusers  {
+class Eusers implements JsonSerializable{
+	
+	/** id utente*/
 	private $id_utente;
+	/** nome utente*/
     private $nome;
+	/** cognome utente*/
     private $cognome;
+	/**email utente*/
     private $email;
+	/** password utente*/
     private $password;
+	/**stato utente*/
 	private $stato;
+	/** commenti dell'utente utente*/
     private $commenti;
+	/** prodotti selezionati dall'utente*/
     private $carrello;
 	
+	
+	//-------------------------------COSTRUTTORE-------------------------------//
 	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,Ecarrello $carrello, Ecommenti $commenti){
 		$this->id_utente=$id_utenteC;	
         $this->nome=$nomeC;
@@ -17,65 +28,124 @@ class Eusers  {
         $this->email=$emailC;
         $this->password=$passwordC;
 		$this->stato=$statoC;
-        $this->commenti = $commenti;
-        $this->carrello = $carrello;	
+        $this->commenti=$commenti;
+        $this->carrello=$carrello;	
 	}
 
-	//----------------GET----------------//
-    public function get_id_utente(){
+
+	//-------------------------------GET-------------------------------//
+	/**
+    * @return int
+    */
+    public function getIDutente():int{
 		return $this->id_utente;
 	}
-    public function getCommenti(): Ecommenti
-    {
-        return $this->commenti;
-    }
-    public function getCarrello(): Ecarrello
-    {
-        return $this->carrello;
-    }
-
-    public function get_nome(){
+	/**
+    * @return string
+    */
+    public function getNome():string{
 		return $this->nome;
 	}
-    public function get_cognome(){
+	/**
+    * @return string
+    */
+    public function getCognome():string{
 		return $this->cognome;
 	}
-    public function get_email(){
+	/**
+    * @return string
+    */
+    public function getEmail():string{
 		return $this->email;
 	}
-    public function get_password(){
+	/**
+    * @return string
+    */
+    public function getPassword():string{
 		return $this->password;
 	}
-	public function get_stato(){
+	/**
+    * @return int
+    */
+	public function getStato():int{
 		return $this->stato;
 	}
-
+	/**
+    * @return mixed
+    */
+	public function getCommenti():Ecommenti{
+        return $this->commenti;
+    }
+	/**
+    * @return mixed
+    */
+    public function getCarrello():Ecarrello{
+        return $this->carrello;
+    }
 	
-    //----------------SET----------------//
-    public function set_id_utente($id_utenteC){
+    //-------------------------------SET-------------------------------//
+	/**
+    * @param int $id_utente
+    */
+    public function setIDutente(int $id_utenteC):void{
 		$this->id_utente=$id_utenteC;
 	}
-    public function set_nome($nomeC){
+	/**
+    * @param string $nome
+    */
+    public function setNome(string $nomeC):void{
 		$this->nome=$nomeC;
 	}
-    public function set_cognome($cognomeC){
+	/**
+    * @param string $cognome
+    */
+    public function setCognome(string $cognomeC):void{
 		$this->cognome=$cognomeC;
 	}
-    public function set_email($emailC){
+	/**
+    * @param string $email
+    */
+    public function setEmail(string $emailC):void{
 		$this->email=$emailC;
 	}
-    public function set_password($passwordC){
+	/**
+    * @param string $password
+    */
+    public function setPassword(string $passwordC):void{
 		$this->password=hash('sha256', $passwordC);
 	}
-    public function setStato(string $stato): void{
+	/**
+    * @param int $stato
+    */
+    public function setStato(int $stato): void{
         $this->stato = $stato;
     }
+	/**
+    * @param mixed $commenti
+    */
     public function setCommenti(Ecommenti $commenti): void{
         $this->commenti = $commenti;
     }
+	/**
+    * @param mixed $carrello
+    */
     public function setCarrello(Ecarrello $carrello): void{
         $this->carrello = $carrello;
     }
 	
+	
+	//-------------------------------JsonSerializable-------------------------------//
+	public function jsonSerialize(){
+		return[
+			'id_utente' => $this->getIDutente(),
+			'nome' => $this->getNome(),
+			'cognome' => $this->getCognome(),
+			'email' => $this->getEmail(),
+			'password' => $this->getPassword(),
+			'stato' => $this->getStato(),
+			'commenti' => $this->getCommenti(),
+			'carrello' => $this->getCarrello(),
+		];
+	}
 }
 ?>

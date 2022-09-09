@@ -1,23 +1,21 @@
 <?php
 
-class Eimmagine {
-    /**id dell'immagine*/
+class Eimmagine implements JsonSerializable{
+	
+    /** id dell'immagine*/
     private $id_img;
-
-    /**dati immagine*/
+    /** dati immagine*/
     private $nome;
-
     /** mime type dell'immagine */
     private $type;
-
-    /**id dell'oggetto al quale l'immagine si riferisce */
+    /** id dell'oggetto al quale l'immagine si riferisce */
     private $size;
-
-    /**contenuto immagine */
+    /** contenuto immagine */
     private $img;
 
-    /**costruttore*/
-    public function __construct($id, $nome, $type, $size, $img){
+
+   //-------------------------------COSTRUTTORE-------------------------------//
+    public function __construct(int $id,string $nome,string $type,int $size,longblob $img){
         $this->id_img = $id;
         $this->nome = $nome;
         $this->type = $type;
@@ -25,79 +23,82 @@ class Eimmagine {
         $this->img= $img;
     }
 
-    //----------------GET----------------//
 
+    //-------------------------------GET-------------------------------//
     /**
-    * @return int id dell'immagine
+    * @return int 
     */
-    public function get_id_img(): int{
+    public function getIDimg(): int{
         return $this->id_img;
     }
-
     /**
-    * @return string nome immagine
+    * @return string 
     */
-    public function get_nome(){
+    public function getNomeIm():string{
         return $this->nome;
     }
-
     /**
-    * @return string content type dell'immagine
+    * @return string 
     */
-    public function get_type(){
+    public function getTyp():string{
         return $this->type;
     }
-
     /**
-    * @return int size dell'immagine
+    * @return int 
     */
-    public function get_size(){
+    public function getSize():int{
         return $this->size;
     }
-
-     /**
-    * @return longblob contenuto dell'immagine
+    /**
+    * @return longblob 
     */
-    public function get_img(){
+    public function getImg():longblob{
         return $this->img;
     }
 
-    //----------------SET----------------//
 
+    //-------------------------------SET-------------------------------//
     /**
-    * @param int $id_img dell'immagine
+    * @param int $id_img 
     */
-    public function set_id_img($id_img){
+    public function setIDimg(int $id_img):void{
         $this->id_img = $id_img;
     }
-
     /**
-    * @param string $nome immagine
+    * @param string $nome 
     */
-    public function set_nome($nome){
+    public function setNomeIm(string $nome):void{
         $this->nome = $nome;
     }
-
     /**
-    * @param string $type dell'immagine
+    * @param string $type 
     */
-    public function set_type($type){
+    public function setTyp(string $type):void{
         $this->type = $type;
     }
-
     /**
-    * @param int $size dell'immagine
+    * @param int $size 
     */
-    public function set_size($size){
+    public function setSize(int $size):void{
         $this->size = $size;
     }
-
     /**
-    * @param longblob $img dell'immagine
+    * @param longblob $img 
     */
-    public function set_img($img){
+    public function set_img(longblob $img):void{
         $this->img = $img;
     }
     
+	
+	//-------------------------------JsonSerializable-------------------------------//
+	public function jsonSerialize(){
+		return[
+			'id_img' => $this->getIDimg(),
+			'nome' => $this->getNomeIm(),
+			'type' => $this->getTyp(),
+			'size' => $this->getSize(),
+			'img' => $this->getImg(),
+		];
+	}	
 }
 ?>

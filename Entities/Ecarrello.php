@@ -1,40 +1,55 @@
 <?php
-class Ecarrello {
+class Ecarrello implements JsonSerializable{
+	
+	/** quantità prodotti*/
 	private $quantitaCarrello;
+	/** irodotti nel carello*/
 	private $prodotti;
 
+
+	//-------------------------------COSTRUTTORE-------------------------------//
 	public function __construct(int $quantitaCarrelloC,Eprodotti $prodottiC){
-		//parent::__construct($id_utenteC,$nomeC,$cognomeC); 
 		$this->quantitaCarrello=$quantitaCarrelloC;
 		$this->prodotti = $prodottiC;
 	}
 	
-	//----------------GET----------------//
-    public function get_quantitaCarrello(){
+	
+	//-------------------------------GET-------------------------------//
+	/**
+    * @return int
+    */
+    public function getQuantita():int{
 		return $this->quantitaCarello;
 	}
-	public function get_prodotti(){
+	/**
+    * @return string
+    */
+	public function getProdotti():Eprodotti{
 		return $this->prodotti;
 	}
 	
     
-    //----------------SET----------------//
-    public function set_quantitaCarello($quantitaCarrelloC){
+   //-------------------------------SET-------------------------------//
+	/**
+    * @param mixed $quantitaCarrello
+    */
+    public function setQuantita(int $quantitaCarrelloC):void{
 		$this->quantitaCarrello=$quantitaCarrelloC;
 	}
-	public function set_prodotti($prodottiC){
+	/**
+    * @param mixed $prodotti
+    */
+	public function setProdotti(Eprodotti $prodottiC):void{
 		$this->prodotti=$prodottiC;
 	}
 	
-	//----------------ADD-REMOVE----------------//
-	/*
-	public function addProdotto(Eprodotti $agg) {
-		array_push($this->merci, $agg);
-    }
-	public function removeProdotto($pos) {
-        unset($this->merci[$pos]);
-        $this->merci=array_values($this->merci);
-    }
-	*/
+	
+	//-------------------------------JsonSerializable-------------------------------//
+	public function jsonSerialize(){
+		return[
+			'quantitaCarrello' => $this->getQuantita(),
+			'prodotti' => $this->getProdotti(),
+		];
+	}	
 }
 ?>

@@ -1,32 +1,76 @@
 <?php
-class Eaccessori extends Eprodotti{
+class Eaccessori extends Eprodotti implements JsonSerializable{
+	
+	/** id accessorio*/
 	private String $id_accessorio;
+	/** marca dell'accessorio*/
     private String $prodotto_abbinato;
+	/** immagine accessorio*/
 	private string $immagini;
     
-	public function __construct($id_accessorioA,$prodotto_abbinatoA,Eimmagini $immaginiA){
-		parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiP);
+	
+	//-------------------------------COSTRUTTORE-------------------------------//
+	public function __construct(int $id_accessorioA,string $prodotto_abbinatoA,Eimmagini $immaginiA){
+		parent::__construct(int $idP,string $marcaP,string $descrizioneP,int $quantitaP,float$prezzoP,Eimmagine $immaginiP);
 		$this->id_accessorio=$id_accessorioA;	
         $this->prodotto_abbinato=$prodotto_abbinatoA;  
 		$this->immagini=$immaginiP;
-
 	}
 	
-	//----------------GET----------------//
-    public function get_id_accessorio(){
+	
+	//-------------------------------GET-------------------------------//
+	/**
+    * @return mixed
+    */
+    public function getIDacc():int{
 		return $this->id_accessorio;
 	}
-    public function get_prodotto_abbinato(){
+	/**
+    * @return string
+    */
+    public function getProdabinato():string{
 		return $this->prodotto_abbinato;
 	}
-    
-    //----------------SET----------------//
-    public function set_id_accessorio($id_accessorioA){
+    /**
+    * @return mixed
+    */
+    public function getImmagini():Eimmagini{
+		return $this->prodotto_abbinato;
+	}
+	
+	
+    //-------------------------------SET-------------------------------//
+	/**
+    * @param mixed $id
+    */
+    public function setIDacc(int $id_accessorioA):void{
 		$this->id_accessorio=$id_accessorioA;
 	}
-    public function set_prodotto_abbinato($prodotto_abbinatoA){
+	/**
+	* @param string $prodotto_abbinato
+	*/
+    public function setProdabinato(string $prodotto_abbinatoA):void{
 		$this->prodotto_abbinato=$prodotto_abbinatoA;
 	}
-
+    /**
+    * @param mixed $immagini
+    */
+	public function setImmagini(Eimmagini $immaginiA):void{
+		$this->immagini=$immaginiA;
+	}
+	
+	
+	//-------------------------------JsonSerializable-------------------------------//
+	public function jsonSerialize(){
+		return[
+			'id_accessorio' => $this->getIDacc(),
+			'prodotto_abbinato' => $this->getProdabinato(),
+			'immagini' => $this->getImmagini(),
+			'marca' => $this->getMarca(),
+			'descrizione' => $this->getDescrizione(),
+			'quantità' => $this->getQuantità(),
+			'prezzo' => $this->getPrezzo(),
+		];
+	}
 }
 ?>

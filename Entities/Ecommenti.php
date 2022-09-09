@@ -1,69 +1,87 @@
 <?php
-class Ecommenti {
+class Ecommenti implements JsonSerializable{
+	
+	/** id commento*/
     private $id;
+	/** valutazione del prodotto*/
 	private $rating;
+	/** l'opinione dell'utente*/
 	private $testo;
+	/** immagine del prodotto acquistato*/
     private $img;
 
-	public function __construct(int $idC,int $ratingC,string $testoC, Eimmagini $imgC){
+
+	//-------------------------------COSTRUTTORE-------------------------------//
+	public function __construct(int $idC,int $ratingC,string $testoC, Eimmagine $imgC){
         $this->id = $idC;
 		$this->rating=$ratingC;	
 		$this->testo=$testoC;	
-		$this->img=$imgC;	
-		
+		$this->img=$imgC;		
 	}
 	
-	//----------------GET----------------//
-    public function get_rating(){
+	
+	//-------------------------------GET-------------------------------//
+	/**
+    * @return int
+    */
+    public function getId():int{
+        return $this->id;
+    }
+	/**
+    * @return int
+    */
+    public function getRating():int{
 		return $this->rating;
 	}
-	public function get_testo(){
+	/**
+    * @return string
+    */
+	public function getTesto():string{
 		return $this->testo;
 	}
-	public function get_immagini(){
+    /**
+    * @return mixed
+    */
+	public function getImmagini():Eimmagini{
 		return $this->immagini;
 	}
 
-    /**
-     * @return int
-     */
-    public function getId(): int{
-        return $this->id;
-    }
 
-    
-    //----------------SET----------------//
-    public function set_rating($ratingC){
+    //-------------------------------SET-------------------------------//
+	/**
+    * @param int $id
+    */
+    public function setId(int $id):void{
+        $this->id = $id;
+    }
+	/**
+    * @param int $rating
+    */
+    public function setRating(int $ratingC):void{
 		$this->rating=$ratingC;
 	}
-
     /**
-     * @param int $id
-     * @return Ecommenti
-     */
-    public function setId(int $id): Ecommenti{
-        $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @param string $testo
-     * @return Ecommenti
-     */
-    public function setTesto(string $testo): Ecommenti{
+    * @param string $testo
+    */
+    public function setTesto(string $testo):void{
         $this->testo = $testo;
-        return $this;
     }
-
     /**
-     * @param string $img
-     * @return Ecommenti
-     */
-    public function setImg(string $img): Eimmagine{
+    * @param string $img
+    */
+    public function setImg(Eimmagini $img):void{
         $this->img = $img;
-        return $this;
     }
     
-
+	
+	//-------------------------------JsonSerializable-------------------------------//
+	public function jsonSerialize(){
+		return[
+			'id' => $this->getId(),
+			'rating' => $this->getRating(),
+			'testo' => $this->getTesto(),
+			'img' => $this->getImmagini(),
+		];
+	}	
 }
 ?>
