@@ -1,6 +1,8 @@
 <?php
 class Eordine implements JsonSerializable{
 	
+	/** id dell'ordine*/
+	private $id_ordine;
 	/** prezzo prodotti*/
 	private $prezzo_tot;
 	/** dati spedizione*/
@@ -14,7 +16,8 @@ class Eordine implements JsonSerializable{
 	
 	
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(float $prezzo_totO,string $ind_spedizioneO,?string $data_oraO, Ecodicipromozionali $codice_promozionaleO,Ecarrello $carrelloO){
+	public function __construct(int $id_ordineO,float $prezzo_totO,string $ind_spedizioneO,?string $data_oraO, Ecodicipromozionali $codice_promozionaleO,Ecarrello $carrelloO){
+		$this->id_ordine=$id_ordineO;	
 		$this->prezzo_tot=$prezzo_totO;	
         $this->ind_spedizione=$ind_spedizioneO;	
         $this->data_ora=$data_oraO;
@@ -24,6 +27,12 @@ class Eordine implements JsonSerializable{
 	
 	
 	//-------------------------------GET-------------------------------//
+	/**
+    * @return float 
+    */
+    public function getIDordine():int{
+		return $this->id_ordine;
+	}
 	/**
     * @return float 
     */
@@ -58,7 +67,13 @@ class Eordine implements JsonSerializable{
 	
 	//-------------------------------SET-------------------------------//
 	/**
-    * @param int $prezzo_tot 
+    * @param int $id_ordine 
+    */
+    public function setIDordine(int $id_ordineO):void{
+		$this->id_ordine=$id_ordineO;
+	}
+	/**
+    * @param float $prezzo_tot 
     */
     public function setPrezzoT(float $prezzo_totO):void{
 		$this->prezzo_tot=$prezzo_totO;
@@ -92,6 +107,7 @@ class Eordine implements JsonSerializable{
 	//-------------------------------JsonSerializable-------------------------------//
 	public function jsonSerialize(){
 		return[
+			'id_ordine' => $this->getIDordine(),
 			'prezzo_tot' => $this->getPrezzoT(),
 			'ind_spedizione' => $this->getIndS(),
 			'data_ora' => $this->getDataOra(),
