@@ -1,6 +1,8 @@
 <?php
 class Ecarrello implements JsonSerializable{
 	
+	/** id carrello*/
+	private $id_carrello;
 	/** quantità prodotti*/
 	private $quantitaCarrello;
 	/** irodotti nel carello*/
@@ -8,13 +10,20 @@ class Ecarrello implements JsonSerializable{
 
 
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(int $quantitaCarrelloC,Eprodotti $prodottiC){
+	public function __construct(int $id_carrelloC,int $quantitaCarrelloC,Eprodotti $prodottiC){
+		$this->id_carrello=$id_carrelloC;
 		$this->quantitaCarrello=$quantitaCarrelloC;
-		$this->prodotti = $prodottiC;
+		$this->prodotti=$prodottiC;
 	}
 	
 	
 	//-------------------------------GET-------------------------------//
+	/**
+    * @return int
+    */
+    public function getIDcarrello():int{
+		return $this->id_carrello;
+	}
 	/**
     * @return int
     */
@@ -30,8 +39,14 @@ class Ecarrello implements JsonSerializable{
 	
     
    //-------------------------------SET-------------------------------//
+   /**
+    * @param int $id_carrello
+    */
+    public function setQuantita(int $id_carrelloC):void{
+		$this->id_carrello=$id_carrelloC;
+	}
 	/**
-    * @param mixed $quantitaCarrello
+    * @param int $quantitaCarrello
     */
     public function setQuantita(int $quantitaCarrelloC):void{
 		$this->quantitaCarrello=$quantitaCarrelloC;
@@ -47,6 +62,7 @@ class Ecarrello implements JsonSerializable{
 	//-------------------------------JsonSerializable-------------------------------//
 	public function jsonSerialize(){
 		return[
+			'id_carrello' => $this->getIDcarrello(),
 			'quantitaCarrello' => $this->getQuantita(),
 			'prodotti' => $this->getProdotti(),
 		];
