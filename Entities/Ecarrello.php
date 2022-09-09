@@ -36,21 +36,25 @@ class Ecarrello implements JsonSerializable{
 	public function getProdotti():Eprodotti{
 		return $this->prodotti;
 	}
-	
+
     
    //-------------------------------SET-------------------------------//
-   /**
-    * @param int $id_carrello
-    */
-    public function setQuantita(int $id_carrelloC):void{
-		$this->id_carrello=$id_carrelloC;
-	}
-	/**
-    * @param int $quantitaCarrello
-    */
-    public function setQuantita(int $quantitaCarrelloC):void{
-		$this->quantitaCarrello=$quantitaCarrelloC;
-	}
+
+    /**
+     * @param int $quantitaCarrello
+     */
+    public function setQuantitaCarrello(int $quantitaCarrello): void
+    {
+        $this->quantitaCarrello = $quantitaCarrello;
+    }
+    /**
+     * @param int $id_carrello
+     */
+    public function setIdCarrello(int $id_carrello): void
+    {
+        $this->id_carrello = $id_carrello;
+    }
+
 	/**
     * @param mixed $prodotti
     */

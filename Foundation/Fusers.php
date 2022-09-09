@@ -17,11 +17,11 @@ class Fusers extends FdataBase {
     */
     public static function bind(PDOStatement $pdostatement, Eusers $utente){
         $pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
-        $pdostatement->bindValue(':nome',$utente->get_nome(), PDO::PARAM_STR); 
-        $pdostatement->bindValue(':cognome',$utente->get_cognome(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':password',$utente->get_password(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':email',$utente->get_email(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':stato',$utente->get_stato(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':nome',$utente->getNome(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':cognome',$utente->getCognome(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':password',$utente->getPassword(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':email',$utente->getEmail(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':stato',$utente->getStato(), PDO::PARAM_STR);
     }
 
     /**
@@ -82,7 +82,7 @@ class Fusers extends FdataBase {
     * @param $id int dell'utente
     * @return string|null utente
     */
-    public function loadById($id){
+    public function loadById(int $id){
         $riferimento = parent::loadById($id);
         if (($riferimento != null) && (count($riferimento)>0)){
             $riga = $riferimento[0];
@@ -100,7 +100,7 @@ class Fusers extends FdataBase {
     */
     public function getUtente($riga){
         $ogg = new Eusers($riga['nome'], $riga['cognome'], $riga['email'], $riga['password']);
-        $ogg->set_id_utente($riga['id']);
+        $ogg->setIDutente($riga['id']);
         $ogg->setCommenti($riga['commenti']);
         $ogg->setStato($riga['stato']);
         return $ogg;

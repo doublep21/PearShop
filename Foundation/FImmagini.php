@@ -15,10 +15,10 @@ class FImmagini extends FdataBase{
     */
     public static function bind(PDOStatement $pdostatement, Eimmagine $img){
         $pdostatement->bindValue(':id_img',NULL, PDO::PARAM_INT);
-        $pdostatement->bindValue(':nome',$img->get_nome(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':type',$img->get_type(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':size',$img->get_size(), PDO::PARAM_INT);
-        $pdostatement->bindValue(':img',$img->get_img(), PDO::PARAM_LOB);
+        $pdostatement->bindValue(':nome',$img->getNomeIm(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':type',$img->getTyp(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':size',$img->getSize(), PDO::PARAM_INT);
+        $pdostatement->bindValue(':img',$img->getImg(), PDO::PARAM_LOB);
     }
 
     /** Metodo che crea un oggetto di tipo Eimmagini
@@ -27,15 +27,15 @@ class FImmagini extends FdataBase{
     */
     public static function buildImg(array $riga){
         $img = new Eimmagine($riga['nome'],$riga['type'],$riga['size'],$riga['img']);
-        $img->set_id_img($riga['id_img']);
+        $img->setIDimg($riga['id_img']);
         return $img;
     }
 
     /** Metodo che carica un immagine nel database
-    * @param $id dell'immagine 
+    * @param $id int dell'immagine
     * @return Eimmagine|string|null
     */
-    public function loadById($id_immagine){
+    public function loadById(int $id_immagine){
         $riga = parent::loadById($id_immagine);
         if(($riga!=null) && (count($riga)>0)){
             $listimg = $riga[0];
@@ -68,11 +68,11 @@ class FImmagini extends FdataBase{
     * @return bool
     */
     public function updateFoto(Eimmagine $foto){
-        $idimm = $foto->get_id_img();
-        $nome = $this->update($idimm, "Nome", $foto->get_nome());
-        $type = $this->update($idimm, "Type", $foto->get_type());
-        $size = $this->update($idimm, "Size", $foto->get_size());
-        $img = $this->update($idimm, "img", $foto->get_img());
+        $idimm = $foto->getIDimg();
+        $nome = $this->update($idimm, "Nome", $foto->getNomeIm());
+        $type = $this->update($idimm, "Type", $foto->getTyp());
+        $size = $this->update($idimm, "Size", $foto->getSize());
+        $img = $this->update($idimm, "img", $foto->getImg());
         if ($nome && $type && $size && $img){
             return true;
         } else {
@@ -82,10 +82,10 @@ class FImmagini extends FdataBase{
 
     /**
 	* Metodo che elimina un immagine dal database
-	* @param $id_img string 
+	* @param $id_img int
 	* @return boolean
 	*/
-	public function deleteFoto($id_img){
+	public function deleteFoto(int $id_img){
 		$query = " DELETE FROM".$this->_tabella." WHERE id_immagine =".$id_img.";";
 		try{
 			$this->_connessione->beginTransaction();

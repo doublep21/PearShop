@@ -15,13 +15,13 @@ class FCommenti extends FDataBase{
     */
     public static function bind(PDOStatement $pdostatement, Ecommenti $commento){
         $pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
-        $pdostatement->bindValue(':rating',$commento->get_rating(), PDO::PARAM_INT);
-        $pdostatement->bindValue(':testo',$commento->get_testo(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':img',$commento->get_immagini(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':rating',$commento->getRating(), PDO::PARAM_INT);
+        $pdostatement->bindValue(':testo',$commento->getTesto(), PDO::PARAM_STR);
+        $pdostatement->bindValue(':img',$commento->getImmagini(), PDO::PARAM_STR);
     }
 
     /** Metodo che consente di creare un oggetto da una riga della tabella commento
-    * @param $riga lista del valore della tabella commento
+    * @param $riga array lista del valore della tabella commento
     * @return ECommenti $commento
     */
     public function getObject($riga){
@@ -35,7 +35,7 @@ class FCommenti extends FDataBase{
     * @param $id int del commento
     * @return Ecommenti|string|null
     */
-    public function loadById($id){
+    public function loadById(int $id){
         $riga = parent::loadById($id);
         $listacommenti = $riga[0];
         if(($riga!=null) && (count($riga)>0)){
@@ -46,10 +46,10 @@ class FCommenti extends FDataBase{
     }
 
     /** Metodo che carica un gruppo di commenti nel database data una lista di id
-    * @param $multipleid
+    * @param $multipleid array
     * @return array|null
     */
-    public function loadMultipleById($multipleid){
+    public function loadMultipleById(array $multipleid){
         $listacomm = parent::loadMultipleById($multipleid);
         $arrayobj = array();
         if(($listacomm != null) && (count($listacomm)>0)){
@@ -63,7 +63,7 @@ class FCommenti extends FDataBase{
     }
 
     /**Metodo che restituisce i commenti relativi a un prodotto
-    * @param $idprodotto prodotto desiderato
+    * @param $idprodotto int  prodotto desiderato
     * @return array|null di commenti
     */
     public function loadProdotto(int $idprodotto){

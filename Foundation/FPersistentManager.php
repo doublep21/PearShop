@@ -297,7 +297,7 @@ class FPersistentManager{
     public function ricercaByMarca($ricerca)
     {
         $fr = new FRicondizionato();
-        $risultato = $fr->ricercaPerNome($ricerca);
+        $risultato = $fr->ricercaPerMarca($ricerca);
         return $risultato;
     }
 
