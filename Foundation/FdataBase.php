@@ -28,7 +28,7 @@ class FDataBase
 
     /**
      * Effettua lo store di un oggetto nel database
-     * @param $oggetto da inserire nel database
+     * @param $oggetto mixed da inserire nel database
      * @return false|string $id dell' oggetto inserito nel database
      */
     public function store($oggetto)
@@ -56,12 +56,12 @@ class FDataBase
 
 	/**
 	 * Metodo che aggiorna il valore di un attributo nel database passato come paramentro
-	 * @param $id dell'oggetto
+	 * @param $id int dell'oggetto
 	 * @param $newValue string nuovo valore dell'attributo
 	 * @param $attributo string valore da cambiare
 	 * @return boolean
 	 */
-	public function update($id, $newValue, $attributo)
+	public function update(int $id, $newValue, $attributo)
 	{
 		$query = " UPDATE ". $this->_tabella ." SET ".$attributo." = '".$newValue."' WHERE id = ".$id.";";
 		try 
@@ -86,7 +86,7 @@ class FDataBase
 	 * @param int $id della tupla interessata
 	 * @return boolean
 	 */
-	public function exist($id)
+	public function exist(int $id)
 	{
 		$query = " SELECT * FROM ".$this->_tabella." WHERE id =".$id.";";
 		try 
@@ -113,7 +113,7 @@ class FDataBase
 	 * @param $id int della tupla
 	 * @return boolean
 	 */
-	public function delete($id)
+	public function delete(int $id)
 	{
 		$query = " DELETE FROM".$this->_tabella." WHERE id =".$id.";";
 		try
@@ -137,7 +137,7 @@ class FDataBase
 	 * @param $id int dell'oggetto
 	 * @return string tupla recuperata
 	 */
-	public function loadById($id)
+	public function loadById(int $id)
 	{
 		$query = " SELECT * FROM ".$this->_tabella." WHERE id =".$id.";";
 		try 
@@ -162,7 +162,7 @@ class FDataBase
 	 * @param $multipleid array di id associati agli oggetti da recuparare
 	 * @return array di tuple recuparate
 	 */
-	public function loadMultipleById($multipleid)
+	public function loadMultipleById(array $multipleid)
 	{
 		$i = implode(",", $multipleid);
 		$i = "(".$i.")";

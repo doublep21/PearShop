@@ -4,14 +4,14 @@ class Eordine {
     private $ind_spedizione;
     private $data_ora;
 	private $codice_promozionale;
-	private $carello;
+	private $carrello;
 
-	public function __construct(float $prezzo_totO,string $ind_spedizioneO,?string $data_oraO, Ecodicipromozionali $codice_promozionaleO,Ecarello $carelloO){
+	public function __construct(float $prezzo_totO,string $ind_spedizioneO,?string $data_oraO, Ecodicipromozionali $codice_promozionaleO,Ecarrello $carrelloO){
 		$this->prezzo_tot=$prezzo_totO;	
         $this->ind_spedizione=$ind_spedizioneO;	
         $this->data_ora=$data_oraO;
 		$this->codice_promozionale=$codice_promozionaleO;	
-		$this->carello=$carelloO;		
+		$this->carrello=$carrelloO;		
 	}
 	
 	//----------------GET----------------//

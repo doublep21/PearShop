@@ -3,21 +3,19 @@
 class Fusers extends FdataBase {
 
     /** costruttore della classe */
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         $this->_tabella = 'Utente';
-        $this->_valore ='(:id,:nome,:cognome,:email,:password :stato)';
+        $this->_valore ='(:id,:nome,:cognome,:email,:password,:stato)';
         $this->_classe = 'Fuser';
     }
 
     /**
-     * Metodo che lega gli attributi dell'utente da inserire mediante il parametro INSERT
-     * @param $pdostatement
-     * @param $utente Eusers utente i cui dati devono essere inseriti nel database
-     */
-    public static function bind(PDOStatement $pdostatement, Eusers $utente)
-    {
+    * Metodo che lega gli attributi dell'utente da inserire mediante il parametro INSERT
+    * @param $pdostatement
+    * @param $utente Eusers utente i cui dati devono essere inseriti nel database
+    */
+    public static function bind(PDOStatement $pdostatement, Eusers $utente){
         $pdostatement->bindValue(':id',NULL, PDO::PARAM_INT);
         $pdostatement->bindValue(':nome',$utente->get_nome(), PDO::PARAM_STR); 
         $pdostatement->bindValue(':cognome',$utente->get_cognome(), PDO::PARAM_STR);
@@ -27,12 +25,11 @@ class Fusers extends FdataBase {
     }
 
     /**
-     * Metodo per verificare la presenza di un utente dato il nome
-     * @param $name string nome dell'utente
-     * @return bool|null
-     */
-    public function existName($name)
-    {
+    * Metodo per verificare la presenza di un utente dato il nome
+    * @param $name string nome dell'utente
+    * @return bool|null
+    */
+    public function existName($name){
         $query = " SELECT * FROM ".$this->_tabella." WHERE name= '".$name."';";
         try {
             $this->_connessione->beginTransaction();
@@ -44,24 +41,21 @@ class Fusers extends FdataBase {
                 return true;
             }
             else return false;
-
         }
         catch (PDOException $e){
             $this->_connessione->rollBack();
             echo "Errore: ".$e->getMessage();
             return null;
-
         }
     }
 
     /**
-     * Metodo per verificare la presenza di un utente
-     * @param $name string nome dell'utente
-     * @param $password string dell'utente
-     * @return false|mixed|null $id dell'utente se presente,altrimenti false
-     */
-    public function existUser($name,$password)
-    {
+    * Metodo per verificare la presenza di un utente
+    * @param $name string nome dell'utente
+    * @param $password string dell'utente
+    * @return false|mixed|null $id dell'utente se presente,altrimenti false
+    */
+    public function existUser($name,$password){
         $query = " SELECT * FROM ".$this->_tabella." WHERE name= '".$name."';";
         try {
             $this->_connessione->beginTransaction();
@@ -84,12 +78,11 @@ class Fusers extends FdataBase {
     }
 
     /**
-     * Metodo che effettua la load dell'utente utilizzando l'id
-     * @param $id int dell'utente
-     * @return string|null utente
-     */
-    public function loadById($id)
-    {
+    * Metodo che effettua la load dell'utente utilizzando l'id
+    * @param $id int dell'utente
+    * @return string|null utente
+    */
+    public function loadById($id){
         $riferimento = parent::loadById($id);
         if (($riferimento != null) && (count($riferimento)>0)){
             $riga = $riferimento[0];
@@ -101,12 +94,11 @@ class Fusers extends FdataBase {
     }
 
     /**
-     * Metodo che crea un oggetto di tipo Eusers
-     * @param $riga che si riferisce alla tupla
-     * @return Eusers
-     */
-    public function getUtente($riga)
-    {
+    * Metodo che crea un oggetto di tipo Eusers
+    * @param $riga che si riferisce alla tupla
+    * @return Eusers
+    */
+    public function getUtente($riga){
         $ogg = new Eusers($riga['nome'], $riga['cognome'], $riga['email'], $riga['password']);
         $ogg->set_id_utente($riga['id']);
         $ogg->setCommenti($riga['commenti']);
@@ -115,26 +107,24 @@ class Fusers extends FdataBase {
     }
 
     /**
-     * Metodo che crea una riga per l'utente
-     * @param $riga presente nel database
-     * @return mixed
-     */
-    public function buildRow($riga)
-    {
+    * Metodo che crea una riga per l'utente
+    * @param $riga presente nel database
+    * @return mixed
+    */
+    public function buildRow($riga){
         $comm = new FCommenti();
-        $lista = $comm->loadByIduser($riga['id']);
+        $lista = $comm->loadById($riga['id']);
         $riga['commenti'] = $lista;
         return $riga;
     }
 
     /**
-     * Metodo che cerca utenti con una determinato valore presente in un attributo
-     * @param $contenuto da cercare
-     * @param $attributo sul quale troviamo $contenuto
-     * @return array|null users
-     */
-    public function search($contenuto, $attributo)
-    {
+    * Metodo che cerca utenti con una determinato valore presente in un attributo
+    * @param $contenuto da cercare
+    * @param $attributo sul quale troviamo $contenuto
+    * @return array|null users
+    */
+    public function search($contenuto, $attributo){
         $risultati = parent::search($contenuto, $attributo); // TODO: Change the autogenerated stub
         if(($risultati != null) && (count($risultati)>0)){
             $listauser = array();

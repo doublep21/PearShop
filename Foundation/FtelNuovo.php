@@ -39,16 +39,11 @@ class FtelNuovo extends FDataBase
         return $prodotto;
     }
 
-    /*public static function build($riga)
-    {
-
-    }*/
-
     /** Metodo che carica un prodotto nel database
      * @param $id int del prodotto
      * @return EtelNuovo|string|null
      */
-    public function loadById($id)
+    public function loadById(int $id)
     {
         $riga = parent::loadById($id);
         if(($riga!=null) && (count($riga)>0)){
@@ -60,10 +55,10 @@ class FtelNuovo extends FDataBase
     }
 
     /** Metodo che carica un gruppo di prodotti nel database data una lista di id
-     * @param $multipleid
+     * @param $multipleid array
      * @return array|null
      */
-    public function loadMultipleById($multipleid)
+    public function loadMultipleById(array $multipleid)
     {
         $listaprodotti = parent::loadMultipleById($multipleid);
         if(($listaprodotti != null) && (count($listaprodotti)>0)){
@@ -82,7 +77,7 @@ class FtelNuovo extends FDataBase
      * @param $nome array di id prodotti
      * @return array di EtelNuovo
      */
-    public function ricercaPerNome($nome){
+    public function ricercaPerMarca($nome){
         if(count($nome)!=0){
             $query = "SELECT marca FROM prodotto WHERE marca=".$nome ;
             for ($i=1; $i<count($nome); $i++){

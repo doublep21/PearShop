@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Set 04, 2022 alle 20:08
+-- Creato il: Set 04, 2022 alle 21:19
 -- Versione del server: 5.6.33-log
 -- Versione PHP: 8.0.22
 
@@ -24,11 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Carello`
+-- Struttura della tabella `Carrello`
 --
 
-CREATE TABLE `Carello` (
-  `id_carello` int(11) NOT NULL,
+CREATE TABLE `Carrello` (
+  `id_carrello` int(11) NOT NULL,
   `id_ute` int(11) NOT NULL,
   `Quantita` int(11) NOT NULL,
   `id_prodN` int(11) NOT NULL,
@@ -174,10 +174,10 @@ INSERT INTO `Utente` (`Nome`, `Cognome`, `Password`, `id_utente`, `Admin`, `Emai
 --
 
 --
--- Indici per le tabelle `Carello`
+-- Indici per le tabelle `Carrello`
 --
-ALTER TABLE `Carello`
-  ADD PRIMARY KEY (`id_carello`),
+ALTER TABLE `Carrello`
+  ADD PRIMARY KEY (`id_carrello`),
   ADD KEY `id_ute` (`id_ute`),
   ADD KEY `id_prodN` (`id_prodN`),
   ADD KEY `id_ricond` (`id_ricond`),
@@ -246,10 +246,10 @@ ALTER TABLE `Utente`
 --
 
 --
--- AUTO_INCREMENT per la tabella `Carello`
+-- AUTO_INCREMENT per la tabella `Carrello`
 --
-ALTER TABLE `Carello`
-  MODIFY `id_carello` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `Carrello`
+  MODIFY `id_carrello` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `CodicePromozionale`
