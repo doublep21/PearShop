@@ -1,5 +1,5 @@
 <?php
-
+require __DIR__ . '/FDataBase.php';
 class FCommenti extends FDataBase{
     public function __construct(){
         parent::__construct();

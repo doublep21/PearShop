@@ -1,5 +1,5 @@
 <?php
-
+require __DIR__ . '/FDataBase.php';
 class FAdmin extends FDataBase
 {
     /** costruttore della classe */

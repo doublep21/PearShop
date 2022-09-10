@@ -1,5 +1,5 @@
 <?php
-
+require __DIR__ . '/FDataBase.php';
 class Fusers extends FdataBase {
 
     /** costruttore della classe */

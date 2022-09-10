@@ -1,5 +1,5 @@
 <?php
-
+require __DIR__ . '/FDataBase.php';
 class FImmagini extends FdataBase{
     public function __construct(){
         parent::__construct();
