@@ -1,5 +1,4 @@
 <?php
-
 class Eusers implements JsonSerializable{
 	
 	/** id utente*/

@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/Eusers.php';
 class EAdmin extends Eusers implements JsonSerializable{
 	
     /** privilegi di amministratore */
@@ -7,7 +8,7 @@ class EAdmin extends Eusers implements JsonSerializable{
 
     //-------------------------------COSTRUTTORE-------------------------------//
     public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,Ecarrello $carrello, Ecommenti $commenti,int $privilegi, ){
-        parent::__construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,int $statoC,Ecarello $carrello,Ecommenti $commenti,int $stato);
+        parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$statoC,$carrello,$commenti,$stato);
         $this->privilegi = $privilegi;
     }
 	

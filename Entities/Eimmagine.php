@@ -1,5 +1,4 @@
 <?php
-
 class Eimmagine implements JsonSerializable{
 	
     /** id dell'immagine*/

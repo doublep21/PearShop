@@ -1,5 +1,5 @@
 <?php
-
+require __DIR__ . '/Eprodotti.php';
 class EtelNuovo extends Eprodotti implements JsonSerializable{
 	
     /** Costruttore della classe Telefono Nuovo

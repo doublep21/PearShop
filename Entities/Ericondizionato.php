@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/Eprodotti.php';
 class Ericondizionato extends Eprodotti implements JsonSerializable{
 
     /** data di inserimento all'interno dello shop*/

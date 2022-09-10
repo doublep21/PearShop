@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/Eprodotti.php';
 class Etelusato extends Eprodotti implements JsonSerializable{
 	
 	/** condizioni specificate dall'utente*/
