@@ -23,7 +23,7 @@ class Etelusato extends Eprodotti implements JsonSerializable{
 
 	//-------------------------------COSTRUTTORE-------------------------------//
 	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,Eimmagine $immagineI,string $condizioniT,?string $data_aquistoT,float $prezzo_usT,int $imeiT,int $cond_schermoT,int $cond_batteriaT, int $cond_usuraT,float $prezzo_aqT,){
-		parent::__construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,Ecommenti  $elenco_commentiP,Eimmagine $immagineI);
+		parent::__construct($idP,$marcaP,$descrizioneP,$quantitàP,$prezzoP,$elenco_commentiP,$immagineI);
 		$this->condizioni=$condizioniT;	
         $this->data_aquisto=$data_aquistoT;	
         $this->prezzo_us=$prezzo_usT;

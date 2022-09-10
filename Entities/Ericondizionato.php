@@ -9,7 +9,7 @@ class Ericondizionato extends Eprodotti implements JsonSerializable{
 
     //-------------------------------COSTRUTTORE-------------------------------//
 	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,?string $data_ricondizionamentoR,string $condizioni_riR, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
-        parent::__construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,Ecommenti $elenco_commentiP,Eimmagine $immagineI);
+        parent::__construct($idP,$marcaP,$descrizioneP,$quantitàP,$prezzoP,$elenco_commentiP,$immagineI);
 		$this->data_ricondizionamento=$data_ricondizionamentoR;	
         $this->condizioni_ri=$condizioni_riR;
 	}

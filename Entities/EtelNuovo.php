@@ -15,7 +15,7 @@ class EtelNuovo extends Eprodotti implements JsonSerializable{
 	
 	//-------------------------------COSTRUTTORE-------------------------------//
     public function __construct(int $id, string $marcaP, string $descrizioneP, int $quantitàP, float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
-        parent::__construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP,Ecommenti $elenco_commentiP,Eimmagine $immagineI);
+        parent::__construct($idP,$marcaP,$descrizioneP,$quantitàP,$prezzoP,$elenco_commentiP,$immagineI);
     }
 
 	

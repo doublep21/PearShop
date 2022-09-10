@@ -11,7 +11,7 @@ class Eaccessori extends Eprodotti implements JsonSerializable{
 	
 	//-------------------------------COSTRUTTORE-------------------------------//
 	public function __construct(int $id_accessorioA,string $prodotto_abbinatoA,Eimmagini $immaginiA){
-		parent::__construct(int $idP,string $marcaP,string $descrizioneP,int $quantitaP,float$prezzoP,Eimmagine $immaginiP);
+		parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiI,$elenco_commentiP);
 		$this->id_accessorio=$id_accessorioA;	
         $this->prodotto_abbinato=$prodotto_abbinatoA;  
 		$this->immagini=$immaginiP;

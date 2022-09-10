@@ -18,7 +18,8 @@ class Eprodotti implements JsonSerializable{
 
 
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(int $id,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
+	public function __construct(int $idP,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
+        $this->id=$idP;
 		$this->marca=$marcaP;
 		$this->descrizione=$descrizioneP;
 		$this->quantità=$quantitàP;
