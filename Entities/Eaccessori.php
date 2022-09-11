@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/Eprodotti.php';
 class Eaccessori extends Eprodotti implements JsonSerializable{
 	
 	/** id accessorio*/
