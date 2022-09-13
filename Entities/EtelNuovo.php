@@ -14,7 +14,7 @@ class EtelNuovo extends Eprodotti implements JsonSerializable{
 	
 	
 	//-------------------------------COSTRUTTORE-------------------------------//
-    public function __construct(int $id, string $marcaP, string $descrizioneP, int $quantitàP, float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
+    public function __construct(int $idP, string $marcaP, string $descrizioneP, int $quantitàP, float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
         parent::__construct($idP,$marcaP,$descrizioneP,$quantitàP,$prezzoP,$elenco_commentiP,$immagineI);
     }
 
@@ -54,12 +54,12 @@ class EtelNuovo extends Eprodotti implements JsonSerializable{
     * @return mixed
     */
     public function getImmagini():Eimmagine{
-        return parent::getImmagini();
+        return parent::getElencoImg();
     }
 	/**
     * @return mixed
     */
-    public function getElencoCommenti(): Ecommenti{
+    public function getElencoCommenti(): array{
         return parent::getElencoCommenti();
     }
 	
@@ -99,12 +99,12 @@ class EtelNuovo extends Eprodotti implements JsonSerializable{
     * @param string $immagini
     */
     public function setImmagini(Eimmagine $immagini):void{
-        parent::setImmagini($immagini);
+        parent::setElencoImg($immagini);
     }
     /**
-    * @param Ecommenti $elenco_commenti
+    * @param array $elenco_commenti
     */
-    public function setElencoCommenti(Ecommenti $elenco_commenti):void{
+    public function setElencoCommenti(array $elenco_commenti):void{
         parent::setElencoCommenti($elenco_commenti);
     }
 	

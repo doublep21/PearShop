@@ -7,8 +7,8 @@ class EAdmin extends Eusers implements JsonSerializable{
 
 
     //-------------------------------COSTRUTTORE-------------------------------//
-    public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,Ecarrello $carrello, Ecommenti $commenti,int $privilegi, ){
-        parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$statoC,$carrello,$commenti,$stato);
+    public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,Ecarrello $carrello, Ecommenti $commenti,int $privilegi){
+        parent::__construct($id_utenteC,$nomeC,$cognomeC,$emailC,$passwordC,$carrello,$commenti);
         $this->privilegi = $privilegi;
     }
 	

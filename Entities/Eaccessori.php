@@ -3,19 +3,17 @@ require __DIR__ . '/Eprodotti.php';
 class Eaccessori extends Eprodotti implements JsonSerializable{
 	
 	/** id accessorio*/
-	private String $id_accessorio;
+	private $id_accessorio;
 	/** marca dell'accessorio*/
-    private String $prodotto_abbinato;
-	/** immagine accessorio*/
-	private string $immagini;
-    
+    private $prodotto_abbinato;
+
 	
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(int $id_accessorioA,string $prodotto_abbinatoA,Eimmagini $immaginiA){
-		parent::__construct($idP,$marcaP,$descrizioneP,$quantitaP,$prezzoP,$immaginiI,$elenco_commentiP);
-		$this->id_accessorio=$id_accessorioA;	
-        $this->prodotto_abbinato=$prodotto_abbinatoA;  
-		$this->immagini=$immaginiP;
+	public function __construct(int $idP,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Eimmagine $immagineI,string $prodotto_abbinatoA){
+		parent::__construct($idP,$marcaP,$descrizioneP,$quantitàP,$prezzoP,$immagineI);
+		$this->id_accessorio=$idP;
+        $this->prodotto_abbinato=$prodotto_abbinatoA;
+		$this->immagini=$immagineI;
 	}
 	
 	
@@ -32,12 +30,7 @@ class Eaccessori extends Eprodotti implements JsonSerializable{
     public function getProdabinato():string{
 		return $this->prodotto_abbinato;
 	}
-    /**
-    * @return mixed
-    */
-    public function getImmagini():Eimmagini{
-		return $this->prodotto_abbinato;
-	}
+
 	
 	
     //-------------------------------SET-------------------------------//
@@ -53,12 +46,7 @@ class Eaccessori extends Eprodotti implements JsonSerializable{
     public function setProdabinato(string $prodotto_abbinatoA):void{
 		$this->prodotto_abbinato=$prodotto_abbinatoA;
 	}
-    /**
-    * @param mixed $immagini
-    */
-	public function setImmagini(Eimmagini $immaginiA):void{
-		$this->immagini=$immaginiA;
-	}
+
 	
 	
 	//-------------------------------JsonSerializable-------------------------------//
