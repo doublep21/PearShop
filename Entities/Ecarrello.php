@@ -10,10 +10,10 @@ class Ecarrello implements JsonSerializable{
 
 
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(int $id_carrelloC,int $quantitaCarrelloC,Eprodotti $prodottiC){
+	public function __construct(int $id_carrelloC,int $quantitaCarrelloC){
 		$this->id_carrello=$id_carrelloC;
 		$this->quantitaCarrello=$quantitaCarrelloC;
-		$this->prodotti=$prodottiC;
+		$this->prodotti=array();
 	}
 	
 	
@@ -33,7 +33,7 @@ class Ecarrello implements JsonSerializable{
 	/**
     * @return string
     */
-	public function getProdotti():Eprodotti{
+	public function getProdotti():array{
 		return $this->prodotti;
 	}
 
@@ -58,11 +58,25 @@ class Ecarrello implements JsonSerializable{
 	/**
     * @param mixed $prodotti
     */
-	public function setProdotti(Eprodotti $prodottiC):void{
+	public function setProdotti(array $prodottiC):void{
 		$this->prodotti=$prodottiC;
 	}
-	
-	
+
+
+
+    //-----------------------------------Metodi--------------------------------------//
+
+    /** Metodo che aggiunge un prodotto all'interno della lista dei prodotti
+     * @param Eprodotti $p prodotto da aggiungere
+     * @return void
+     */
+    public function addProdotto(Eprodotti $p)
+    {
+        array_push($this->prodotti,$p);
+    }
+
+
+
 	//-------------------------------JsonSerializable-------------------------------//
 	public function jsonSerialize(){
 		return[

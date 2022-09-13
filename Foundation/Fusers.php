@@ -6,7 +6,7 @@ class Fusers extends FdataBase {
     public function __construct(){
         parent::__construct();
         $this->_tabella = 'Utente';
-        $this->_valore ='(:id,:nome,:cognome,:email,:password,:stato)';
+        $this->_valore ='(:id,:nome,:cognome,:email,:password)';
         $this->_classe = 'Fuser';
     }
 
@@ -21,7 +21,6 @@ class Fusers extends FdataBase {
         $pdostatement->bindValue(':cognome',$utente->getCognome(), PDO::PARAM_STR);
         $pdostatement->bindValue(':password',$utente->getPassword(), PDO::PARAM_STR);
         $pdostatement->bindValue(':email',$utente->getEmail(), PDO::PARAM_STR);
-        $pdostatement->bindValue(':stato',$utente->getStato(), PDO::PARAM_STR);
     }
 
     /**
@@ -102,7 +101,6 @@ class Fusers extends FdataBase {
         $ogg = new Eusers($riga['nome'], $riga['cognome'], $riga['email'], $riga['password']);
         $ogg->setIDutente($riga['id']);
         $ogg->setCommenti($riga['commenti']);
-        $ogg->setStato($riga['stato']);
         return $ogg;
     }
 

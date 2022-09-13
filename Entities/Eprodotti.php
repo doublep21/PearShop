@@ -18,14 +18,14 @@ class Eprodotti implements JsonSerializable{
 
 
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(int $idP,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Ecommenti $elenco_commentiP, Eimmagine $immagineI){
+	public function __construct(int $idP,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Eimmagine $immagineI){
         $this->id=$idP;
 		$this->marca=$marcaP;
 		$this->descrizione=$descrizioneP;
 		$this->quantità=$quantitàP;
 		$this->prezzo=$prezzoP;
         $this->immagine=$immagineI;
-		$this->elenco_commenti=$elenco_commentiP ;
+		$this->elenco_commenti=array() ;
 	}
 
 
@@ -63,13 +63,13 @@ class Eprodotti implements JsonSerializable{
 	/**
      * @return mixed
      */
-    public function getElencoCommenti():Ecommenti{
+    public function getElencoCommenti():array{
         return $this->elenco_commenti;
     }
 	/**
      * @return mixed
      */
-    public function getElencoImg():Eimagine{
+    public function getElencoImg():Eimmagine{
         return $this->elenco_commenti;
     }
 	
@@ -108,16 +108,27 @@ class Eprodotti implements JsonSerializable{
     /**
      * @param mixed $immagini
      */
-    public function setElencoImg(Eimagine $immagini):void{
+    public function setElencoImg(Eimmagine $immagini):void{
         $this->immagini = $immagini;
     }
     /**
      * @param Ecommenti $elenco_commenti
      */
-    public function setElencoCommenti(Ecommenti $elenco_commenti):void{
+    public function setElencoCommenti(array $elenco_commenti):void{
         $this->elenco_commenti = $elenco_commenti;
     }
 
+
+    //-----------------------------------Metodi--------------------------------------//
+
+    /** Metodo che aggiunge un commento all'interno dell'elenco dei commenti relativo al prodotto
+     * @param Ecommenti $comm commento da aggiungere
+     * @return void
+     */
+    public function aggiungiCommento(Ecommenti $comm)
+    {
+        array_push($this->elenco_commenti,$comm);
+    }
 	
 	//-------------------------------JsonSerializable-------------------------------//
 	public function jsonSerialize(){

@@ -11,8 +11,6 @@ class Eusers implements JsonSerializable{
     private $email;
 	/** password utente*/
     private $password;
-	/**stato utente*/
-	private $stato;
 	/** commenti dell'utente utente*/
     private $commenti;
 	/** prodotti selezionati dall'utente*/
@@ -20,14 +18,13 @@ class Eusers implements JsonSerializable{
 	
 	
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,string $statoC ,Ecarrello $carrello, Ecommenti $commenti){
+	public function __construct(int $id_utenteC,string $nomeC,string $cognomeC,string $emailC,string $passwordC,Ecarrello $carrello){
 		$this->id_utente=$id_utenteC;	
         $this->nome=$nomeC;
         $this->cognome=$cognomeC;
         $this->email=$emailC;
         $this->password=$passwordC;
-		$this->stato=$statoC;
-        $this->commenti=$commenti;
+        $this->commenti= array();
         $this->carrello=$carrello;	
 	}
 
@@ -64,15 +61,9 @@ class Eusers implements JsonSerializable{
 		return $this->password;
 	}
 	/**
-    * @return int
-    */
-	public function getStato():int{
-		return $this->stato;
-	}
-	/**
     * @return mixed
     */
-	public function getCommenti():Ecommenti{
+	public function getCommenti():array{
         return $this->commenti;
     }
 	/**
@@ -81,7 +72,8 @@ class Eusers implements JsonSerializable{
     public function getCarrello():Ecarrello{
         return $this->carrello;
     }
-	
+
+
     //-------------------------------SET-------------------------------//
 	/**
     * @param int $id_utente
@@ -114,15 +106,9 @@ class Eusers implements JsonSerializable{
 		$this->password=hash('sha256', $passwordC);
 	}
 	/**
-    * @param int $stato
-    */
-    public function setStato(int $stato): void{
-        $this->stato = $stato;
-    }
-	/**
     * @param mixed $commenti
     */
-    public function setCommenti(Ecommenti $commenti): void{
+    public function setCommenti(array $commenti): void{
         $this->commenti = $commenti;
     }
 	/**
@@ -131,8 +117,22 @@ class Eusers implements JsonSerializable{
     public function setCarrello(Ecarrello $carrello): void{
         $this->carrello = $carrello;
     }
-	
-	
+
+
+
+    //-------------------------------Metodi------------------------------------------//
+
+    /** Metodo che aggiunge un commento alla lista contenente tutti i commenti
+     * @param $l Ecommenti commento da inserire
+     * @return void
+     */
+    public function  aggiungiCommento(Ecommenti $l)
+    {
+        array_push($this->commenti,$l);
+    }
+
+
+
 	//-------------------------------JsonSerializable-------------------------------//
 	public function jsonSerialize(){
 		return[
@@ -141,7 +141,6 @@ class Eusers implements JsonSerializable{
 			'cognome' => $this->getCognome(),
 			'email' => $this->getEmail(),
 			'password' => $this->getPassword(),
-			'stato' => $this->getStato(),
 			'commenti' => $this->getCommenti(),
 			'carrello' => $this->getCarrello(),
 		];
