@@ -12,11 +12,11 @@ class Ecommenti implements JsonSerializable{
 
 
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(int $idC,int $ratingC,string $testoC, Eimmagine $imgC){
+	public function __construct(int $idC,int $ratingC,string $testoC){
         $this->id = $idC;
 		$this->rating=$ratingC;	
 		$this->testo=$testoC;	
-		$this->img=$imgC;		
+		$this->img=array();
 	}
 	
 	
@@ -42,8 +42,8 @@ class Ecommenti implements JsonSerializable{
     /**
     * @return mixed
     */
-	public function getImmagini():Eimmagini{
-		return $this->immagini;
+	public function getImmagini():array{
+		return $this->img;
 	}
 
 
@@ -69,10 +69,21 @@ class Ecommenti implements JsonSerializable{
     /**
     * @param string $img
     */
-    public function setImg(Eimmagini $img):void{
+    public function setImg(array $img):void{
         $this->img = $img;
     }
-    
+
+
+    //-------------------------------Metodi------------------------------------------//
+
+    /** Metodo per aggiungere una immagine all'interno della lista delle immagini
+     * @param Eimmagine $i immagine da aggiungere
+     * @return void
+     */
+    public function aggiungiImmagineCommento(Eimmagine $i)
+    {
+        array_push($this->img,$i);
+    }
 	
 	//-------------------------------JsonSerializable-------------------------------//
 	public function jsonSerialize(){

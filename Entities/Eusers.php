@@ -126,7 +126,7 @@ class Eusers implements JsonSerializable{
      * @param $l Ecommenti commento da inserire
      * @return void
      */
-    public function  aggiungiCommento(Ecommenti $l)
+    public function  aggiungiCommentoUtente(Ecommenti $l)
     {
         array_push($this->commenti,$l);
     }

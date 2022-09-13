@@ -18,13 +18,13 @@ class Eprodotti implements JsonSerializable{
 
 
 	//-------------------------------COSTRUTTORE-------------------------------//
-	public function __construct(int $idP,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP, Eimmagine $immagineI){
+	public function __construct(int $idP,string $marcaP,string $descrizioneP,int $quantitàP,float $prezzoP){
         $this->id=$idP;
 		$this->marca=$marcaP;
 		$this->descrizione=$descrizioneP;
 		$this->quantità=$quantitàP;
 		$this->prezzo=$prezzoP;
-        $this->immagine=$immagineI;
+        $this->immagine=array();
 		$this->elenco_commenti=array() ;
 	}
 
@@ -69,7 +69,7 @@ class Eprodotti implements JsonSerializable{
 	/**
      * @return mixed
      */
-    public function getElencoImg():Eimmagine{
+    public function getElencoImg():array{
         return $this->elenco_commenti;
     }
 	
@@ -108,7 +108,7 @@ class Eprodotti implements JsonSerializable{
     /**
      * @param mixed $immagini
      */
-    public function setElencoImg(Eimmagine $immagini):void{
+    public function setElencoImg(array $immagini):void{
         $this->immagini = $immagini;
     }
     /**
@@ -125,9 +125,31 @@ class Eprodotti implements JsonSerializable{
      * @param Ecommenti $comm commento da aggiungere
      * @return void
      */
-    public function aggiungiCommento(Ecommenti $comm)
+    public function aggiungiCommentoProdotto(Ecommenti $comm)
     {
         array_push($this->elenco_commenti,$comm);
+    }
+
+    /** Metodo che aggiunge una immagine all'interno della lista delle immagini relative al prodotto
+     * @param Eimmagine $i immagine da inserire
+     * @return void
+     */
+    public function aggiungiImmagineProdotto(Eimmagine $i)
+    {
+        array_push($this->immagine,$i);
+    }
+
+    /** Metodo che tiene conto del numero di commenti presenti per il prodotto
+     * @return int $i numero commenti
+     */
+    public function numeroCommenti() :int
+    {
+       $i=0;
+       foreach ($this->elenco_commenti as $commento)
+       {
+           $i++;
+       }
+       return $i;
     }
 	
 	//-------------------------------JsonSerializable-------------------------------//
